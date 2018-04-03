@@ -1,0 +1,20 @@
+{
+  "name": "airmatters",
+  "version": "1.0.0",
+  "description": "air matters server for unofficial web client",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "air-matters"
+  ],
+  "author": "life1st",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "axios": "^0.18.0",
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0"
+  }
+}
