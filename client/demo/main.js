@@ -48,13 +48,9 @@ function addEvent() {
   input.addEventListener('keyup',(event) =>{
     let cityList = window.cityList
     let value = input.value
-    let newList = []
-    cityList.forEach(city => {
-      if (city.name.toLowerCase().indexOf(value) !== -1) {
-        newList.push(city)
-      }
+    let newList = cityList.filter(city => {
+      return (city.name.toLowerCase().indexOf(value) !== -1)
     })
-    console.log('chufale ')
     if (value === '') {
       renderlist(cityList)
     } else {
