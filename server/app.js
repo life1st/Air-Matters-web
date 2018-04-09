@@ -19,20 +19,21 @@ async function getCitys(ctx) {
 async function getCity(ctx) {
   let parmas = ctx.query
   const BASE_URL = 'https://app.air-matters.com/place/'
-  /* + `china/beijing/en/aqi_us/8733f5dd`*/
+  /*   `china/beijing/en/aqi_us/8733f5dd`*/
   /*   `${country}/${city}/${LANG}/${benchMark}/${link}*/
   let country = parmas.country
   let city = parmas.city
-  let link = parmas.link
+  let id = parmas.id
   let lang = parmas.lang || 'en'
   let benchMark = parmas.benchmark || 'aqi_us'
-  let place_URL = (country, city, LANG, benchMark, link) => `${BASE_URL}${country}/${city}/${LANG}/${benchMark}/${link}`
-
-  let res = await axios.get(place_URL(country, city, lang, benchMark, link))
+  let place_URL = (country, city, LANG, benchMark, id) => `${BASE_URL}${country}/${city}/${LANG}/${benchMark}/${id}`
+  let url = place_URL(country, city, lang, benchMark, id)
+  let res = await axios.get(url)
     .then(res => {
       let data = res.data
       return data
     })
+  console.log(url)
   ctx.status = 200
   ctx.body = res
 }

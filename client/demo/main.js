@@ -25,7 +25,7 @@ function renderlist(cityList) {
   })
   let cityWrap = document.querySelector('.city-display')
   cityWrap.innerHTML = tpl
-  addEvent()
+  return new Promise(resolve => resolve(true))
 }
 function addEvent() {
   let list = document.querySelector('.city-display')
@@ -36,14 +36,43 @@ function addEvent() {
     let id = target.dataset.id
     let name = target.dataset.name
     console.log(key, id, name)
+    /*temp------*/
+    let BASE_URL = 'https://app.air-matters.com/place'
+    let LANG = 'en'
+    let benchMark = 'aqi_us'
+    let url = `${BASE_URL}/${key}/${LANG}/${benchMark}/${id}`
+    window.open(url)
+  })
 
+  let input = document.querySelector('.city-input')
+  input.addEventListener('keyup',(event) =>{
+    let cityList = window.cityList
+    let value = input.value
+    let newList = []
+    cityList.forEach(city => {
+      if (city.name.toLowerCase().indexOf(value) !== -1) {
+        newList.push(city)
+      }
+    })
+    console.log('chufale ')
+    if (value === '') {
+      renderlist(cityList)
+    } else {
+      renderlist(newList)
+    }
   })
 }
+/*
+* https://app.air-matters.com/place/china/beijing/en/aqi_us/8733f5dd
+* */
 window.addEventListener('load', () => {
-  getAQIList()
-    .then((cityList) => {
-      renderlist(cityList)
-    })
+  window.cityList = []
+  getAQIList().then((cityList) => {
+    window.cityList = cityList
+    return renderlist(cityList)
+  }).then(() => {
+    addEvent()
+  })
 })
 
 
