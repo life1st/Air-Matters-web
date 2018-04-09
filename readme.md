@@ -6,4 +6,4 @@ web app with vue //todo
 
 ## server
 
-NodeJs with koa && axios && ... //todo
+NodeJs with koa && axios && cherrio ... //todo
