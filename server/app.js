@@ -3,7 +3,7 @@ const app = new koa()
 const axios = require('axios')
 const router = require('koa-router')()
 const cors = require('@koa/cors')
-
+const cheerio = require('cheerio')
 // CORS
 app.use(cors())
 // router
@@ -31,9 +31,31 @@ async function getCity(ctx) {
   let res = await axios.get(url)
     .then(res => {
       let data = res.data
-      return data
+      const $ = cheerio.load(data)
+      let result = {
+        city: $('#nameBox').find('h2').text(),
+        country: $('#nameBox').find('p').text(),
+      }
+      let chartBox = $('#chartBox')
+      let aqi = {
+        title: chartBox.find('.title').text(),
+        value: chartBox.find('.indexValue').text(),
+        min: chartBox.find('.minValue').text(),
+        max: chartBox.find('.maxValue').text(),
+        standards: chartBox.find('.level').text()
+      }
+      let pollutantBox = $('#pollutantBox')
+      let pollutant = {
+        title: pollutantBox.find('h3').text(),
+      }
+      pollutantBox.find('.pollutantItem').each((i, ele) => {
+
+      })
+      return {
+        ...result,aqi
+      }
     })
-  console.log(url)
+  console.log(url, res)
   ctx.status = 200
   ctx.body = res
 }
