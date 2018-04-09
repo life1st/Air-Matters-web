@@ -49,10 +49,26 @@ async function getCity(ctx) {
         title: pollutantBox.find('h3').text(),
       }
       pollutantBox.find('.pollutantItem').each((i, ele) => {
-
+        let e = $(ele)
+        let name = e.find('.name').text()
+        pollutant[name] = {
+          name,
+          level: e.find('.level').text(),
+          unit: e.find('.unit').text(),
+          value: e.find('.value').text(),
+        }
+      })
+      let healthAdviceBox = $('#healthAdviceBox')
+      let healthAdvice = {
+        title: healthAdviceBox.find('h3').text()
+      }
+      healthAdviceBox.find('.item').each((i, ele) => {
+        let e = $(ele)
+        let name = e.find('.title').text()
+        healthAdvice[name] = e.find('.content').text()
       })
       return {
-        ...result,aqi
+        ...result, aqi, pollutant, healthAdvice
       }
     })
   console.log(url, res)
