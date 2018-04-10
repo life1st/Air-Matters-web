@@ -1,14 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <navigator />
+    <router-view />
   </div>
 </template>
+<script>
+  import navigator from './components/navigator'
 
+  export default {
+    components: {
+      navigator
+    }
+  }
+</script>
 <style lang="less">
+  @import "~normalize.css";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,4 +32,16 @@
     }
   }
 }
+
+  /* animation */
+  .slide-left {
+
+  }
+
+  /* global setting */
+  .icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 </style>

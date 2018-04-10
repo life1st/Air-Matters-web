@@ -35,6 +35,8 @@ async function getCity(ctx) {
         return 5
       case '#d9d726':
         return 4
+      case '#31cd31':
+        return 1
       default:
         return -1
     }
