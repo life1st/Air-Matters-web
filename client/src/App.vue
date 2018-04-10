@@ -15,25 +15,25 @@
 </script>
 <style lang="less">
   @import "~normalize.css";
-#app {
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-  /*font-family: 'STXihei';*/
-  font-family: 'Microsoft YaHei UI';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
+  #app {
+    /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
+    /*font-family: 'STXihei';*/
+    font-family: 'Microsoft YaHei UI';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
     color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+  }
+  #nav {
+    padding: 30px;
+    a {
+      font-weight: bold;
+      color: #2c3e50;
+      &.router-link-exact-active {
+        color: #42b983;
+      }
     }
   }
-}
 
   /* animation */
   .slide-left {
@@ -52,6 +52,23 @@
     transition: all .3s;
   }
 
+  .fade {
+
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+  .fade-enter-to,
+  .fade-leave {
+    opacity: 1;
+  }
+  .fade-enter-active {
+    transition: opacity .3s ease-out;
+  }
+  .fade-leave-active {
+    transition: opacity .3s ease-in;
+  }
   /* global setting */
   .icon {
     display: inline-block;

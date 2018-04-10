@@ -1,19 +1,21 @@
 <template>
-  <transition name="slide-left">
+  <transition name="fade">
     <div class="hamburger">
-      <div class="content">
-        <div class="header" :style="setHeaderStyl">
-          <div class="user-info">
-            <div class="avatar">
-              <img :src="avatarSrc" alt="user avatar">
+      <transition name="slide-left">
+        <div class="content" v-show="isMenuShow">
+          <div class="header" :style="setHeaderStyl">
+            <div class="user-info">
+              <div class="avatar">
+                <img :src="avatarSrc" alt="user avatar">
+              </div>
+              <p class="user-name">{{userName}}</p>
             </div>
-            <p class="user-name">{{userName}}</p>
-          </div>
-          <div class="app-version">
-            ver {{appVersion}}
+            <div class="app-version">
+              ver {{appVersion}}
+            </div>
           </div>
         </div>
-      </div>
+      </transition>
       <div class="mask"
            @click="cancelSelect"></div>
     </div>
@@ -29,7 +31,8 @@
       return {
         appVersion: '0.0.1',
         userName: '未登录',
-        avatarSrc: defaultAvatar
+        avatarSrc: defaultAvatar,
+        isMenuShow: false
       }
     },
     computed: {
@@ -41,6 +44,9 @@
     methods: {
       cancelSelect() {
         this.$emit('cancelSelect')
+      },
+      showMenu(flag) {
+        this.isMenuShow = flag
       }
     }
   }

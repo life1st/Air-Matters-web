@@ -6,6 +6,7 @@
       <p class="title">{{title}}</p>
     </div>
     <hamburger v-show="isOpenMenu"
+               ref="hamburger"
           @cancelSelect="hideMenu"/>
   </div>
 </template>
@@ -26,9 +27,11 @@
     methods: {
       openMenu() {
         this.isOpenMenu = true
+        this.$refs.hamburger.showMenu(true)
       },
       hideMenu() {
         this.isOpenMenu = false
+        this.$refs.hamburger.showMenu(false)
       }
     }
   }
