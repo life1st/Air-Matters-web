@@ -44,7 +44,7 @@
     transform: translateX(-100%);
   }
   .slide-left-enter-to,
-  .slide-lifet-leave {
+  .slide-left-leave {
     transform: translateX(0);
   }
   .slide-left-enter-active,
@@ -69,10 +69,21 @@
   .fade-leave-active {
     transition: opacity .3s ease-in;
   }
+  .blank-enter-active {
+    transition: all .4s;
+  }
+  .blank-leave-active {
+    transition: all .5s;
+  }
   /* global setting */
   .icon {
     display: inline-block;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 </style>

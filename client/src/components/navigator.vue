@@ -6,8 +6,9 @@
       <p class="title">{{title}}</p>
     </div>
     <hamburger v-show="isOpenMenu"
-               ref="hamburger"
-          @cancelSelect="hideMenu"/>
+               :isMenuShow="isOpenMenu"
+               @changeRouter="hideMenu"
+               @cancelSelect="hideMenu"/>
   </div>
 </template>
 
@@ -27,11 +28,9 @@
     methods: {
       openMenu() {
         this.isOpenMenu = true
-        this.$refs.hamburger.showMenu(true)
       },
       hideMenu() {
         this.isOpenMenu = false
-        this.$refs.hamburger.showMenu(false)
       }
     }
   }
@@ -44,6 +43,7 @@
       height: @h;
       background-color: #fff;
       border-bottom: 1px solid #ccc;
+      box-shadow: 1px 2px 2px #ccc;
       .icon {
         @w: 60px / 3;
         @h: 48px / 3;
