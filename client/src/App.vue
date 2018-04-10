@@ -16,7 +16,9 @@
 <style lang="less">
   @import "~normalize.css";
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
+  /*font-family: 'STXihei';*/
+  font-family: 'Microsoft YaHei UI';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -36,6 +38,18 @@
   /* animation */
   .slide-left {
 
+  }
+  .slide-left-enter,
+  .slide-left-leave-to {
+    transform: translateX(-100%);
+  }
+  .slide-left-enter-to,
+  .slide-lifet-leave {
+    transform: translateX(0);
+  }
+  .slide-left-enter-active,
+  .slide-left-leave-active {
+    transition: all .3s;
   }
 
   /* global setting */

@@ -36,20 +36,29 @@
 <style scoped lang="less">
   .navigator {
     .header {
+      @h: 168px / 3;
       position: relative;
+      height: @h;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
       .icon {
-        @w: 24px;
-        @h: 24px;
+        @w: 60px / 3;
+        @h: 48px / 3;
         width: @w;
         height: @h;
         background-image: url("../assets/icon/icon-menu.png");
         background-size: @w @h;
         position: absolute;
-        left: 0;
-        top: 0;
+        left: 54px / 3;
+        top: 50%;
+        transform: translateY(-50%);
       }
       .title {
         margin: 0 auto;
+        padding-left: 220px / 3;
+        font-size: 54px / 3;
+        text-align: left;
+        line-height: @h;
       }
     }
   }
