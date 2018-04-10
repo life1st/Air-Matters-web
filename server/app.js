@@ -26,7 +26,7 @@ async function getCity(ctx) {
   let id = parmas.id
   let lang = parmas.lang || 'en'
   let benchMark = parmas.benchmark || 'aqi_us'
-  let place_URL = (country, city, LANG, benchMark, id) => `${BASE_URL}${country}/${city}/${LANG}/${benchMark}/${id}`
+  let place_URL = (country, city, LANG, benchMark, id) => `${BASE_URL}${country}/${LANG}/${benchMark}/${id}`
   let url = place_URL(country, city, lang, benchMark, id)
   let res = await axios.get(url)
     .then(res => {

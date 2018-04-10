@@ -42,7 +42,7 @@ function addEvent() {
     let LANG = 'en'
     let benchMark = 'aqi_us'
     // let url = `${BASE_URL}/${key}/${LANG}/${benchMark}/${id}`
-    let url = `${BASE_URL}?country=${name}&city=${name}&id=${id}`
+    let url = `${BASE_URL}?country=${key}&city=${name}&id=${id}`
     window.open(url)
   })
 
