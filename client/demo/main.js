@@ -38,7 +38,9 @@ function addEvent() {
     console.log(key, id, name)
     /*temp------*/
     // let BASE_URL = 'https://app.air-matters.com/place'
-    let BASE_URL = 'http://localhost:3000/city'
+    let BASE_URL = location.hostname === 'localhost'
+      ? 'http://localhost:3000/city'
+      : 'http://api.life1st.cn/air/city'
     let LANG = 'zh-Hans'
     let benchMark = 'aqi_us'
     // let url = `${BASE_URL}/${key}/${LANG}/${benchMark}/${id}`
