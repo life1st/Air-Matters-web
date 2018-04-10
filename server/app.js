@@ -26,7 +26,19 @@ async function getCity(ctx) {
   let id = parmas.id
   let lang = parmas.lang || 'en'
   let benchMark = parmas.benchmark || 'aqi_us'
-  let place_URL = (country, city, LANG, benchMark, id) => `${BASE_URL}${country}/${LANG}/${benchMark}/${id}`
+  let place_URL =
+    (country, city, LANG, benchMark, id) =>
+      `${BASE_URL}${country}/${LANG}/${benchMark}/${id}`
+  let getLevel = (color) => {
+    switch (color) {
+      case '#e02d1c':
+        return 5
+      case '#d9d726':
+        return 4
+      default:
+        return -1
+    }
+  }
   let url = place_URL(country, city, lang, benchMark, id)
   let res = await axios.get(url)
     .then(res => {
@@ -65,10 +77,51 @@ async function getCity(ctx) {
       healthAdviceBox.find('.item').each((i, ele) => {
         let e = $(ele)
         let name = e.find('.title').text()
-        healthAdvice[name] = e.find('.content').text()
+        healthAdvice[name] = {
+          text: e.find('.content').text(),
+          level: getLevel(e.find('.bg').css('background'))
+        }
+      })
+      let weatherForecastBox = $('#weatherForecastBox')
+      let weatherForecast = {
+        title: weatherForecastBox.find('h3').text(),
+        hourly: [],
+        daily: []
+      }
+      let getWeatherIcon = (url) => {
+        const BASE_URL = 'https://app.air-matters.com'
+        let len = url.length
+        let path = url.slice(4, len - 1)
+        return `${BASE_URL}/${path}`
+      }
+      let getWeatherTemp = (str) => {
+        let arr = str.split('℃')
+        arr.pop()
+        return arr
+      }
+      weatherForecastBox.find('.hourlyForecastItem').each((i, ele) => {
+        let e = $(ele)
+        weatherForecast.hourly.push({
+          time: e.find('.time').text(),
+          icon: getWeatherIcon(e.find('.icon').css('background-image')),
+          temp: getWeatherTemp(e.find('.temp').text())
+        })
+      })
+
+      weatherForecastBox.find('.dailyForecastItem').each((i, ele) => {
+        let e = $(ele)
+        weatherForecast.daily.push({
+          data: [
+            e.find('.local').text(),
+            e.find('.raw').text()
+          ],
+          wind: e.find('.wind').text(),
+          icon: getWeatherIcon(e.find('.icon').css('background-image')),
+          temp: getWeatherTemp(e.find('.temp').text())
+        })
       })
       return {
-        ...result, aqi, pollutant, healthAdvice
+        ...result, aqi, pollutant, healthAdvice, weatherForecast
       }
     })
   console.log(url, res)
