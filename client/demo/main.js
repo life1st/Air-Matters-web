@@ -1,6 +1,8 @@
 function getAQIList() {
   // let url = 'https://air-matters.com/js/data/map_en_aqi_us.js'
-  let url = 'http://localhost:3000/all'
+  let url = location.pathname === 'localhost'
+    ? 'http://localhost:3000/all'
+    : 'http://api.life1st.cn/air/all'
   return axios.get(url).then(res => {
     console.log('getAQI:>>>', res)
     // return new Promise(resolve => resolve(res))
