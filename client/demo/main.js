@@ -37,10 +37,12 @@ function addEvent() {
     let name = target.dataset.name
     console.log(key, id, name)
     /*temp------*/
-    let BASE_URL = 'https://app.air-matters.com/place'
+    // let BASE_URL = 'https://app.air-matters.com/place'
+    let BASE_URL = 'http://localhost:3000/city'
     let LANG = 'en'
     let benchMark = 'aqi_us'
-    let url = `${BASE_URL}/${key}/${LANG}/${benchMark}/${id}`
+    // let url = `${BASE_URL}/${key}/${LANG}/${benchMark}/${id}`
+    let url = `${BASE_URL}?country=${name}&city=${name}&id=${id}`
     window.open(url)
   })
 
