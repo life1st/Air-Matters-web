@@ -24,6 +24,16 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+  .city-card {
+    margin: 42px / 3 auto;
+    padding: 0 18px / 3;
+    width: 100%;
+    max-width: 1080px / 3;
+    border: 1px solid #efefef;
+    border-radius: 9px / 3;
+    background-color: #fff;
+    box-shadow: 1px 2px 2px #c1c1c1;
+  }
 
 </style>
