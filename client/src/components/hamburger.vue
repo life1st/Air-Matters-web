@@ -15,8 +15,8 @@
             </div>
           </div>
           <ul class="list" @click="changeRouter">
-            <li v-for="(item, index) in menuList[0]"
-                :key="index">
+            <li v-for="item in menuList[0]"
+                :key="item.to">
               <router-link :to="item.to"
                            active-class="active">
                 <i class="icon" :style="setListIcon(item.icon)"></i>
@@ -24,8 +24,8 @@
               </router-link>
             </li>
             <li class="line"></li>
-            <li v-for="(item, index) in menuList[1]"
-                :key="index">
+            <li v-for="item in menuList[1]"
+                :key="item.to">
               <router-link :to="item.to"
                            active-class="active">
                 <i class="icon" :style="setListIcon(item.icon)"></i>
@@ -33,8 +33,8 @@
               </router-link>
             </li>
             <li class="line"></li>
-            <li v-for="(item, index) in menuList[2]"
-                :key="index">
+            <li v-for="item in menuList[2]"
+                :key="item.to">
               <router-link :to="item.to" active-class="active">
                 <i class="icon" :style="setListIcon(item.icon)"></i>
                 {{item.name}}
@@ -73,7 +73,11 @@
           ],[
             {name: '设置', to: '/setting'},
             {name: '关于', to: '/about'}
-          ]]
+          ]],
+        touch: {
+          start: [],
+          end: []
+        }
       }
     },
     props: {
@@ -95,15 +99,14 @@
       changeRouter() {
         this.$emit('changeRouter')
       },
-      isActive(item) {
-        return true
-      },
       setListIcon(url) {
         return `background-image: url('${url}')`
       },
       login() {
         alert('不能登陆现在。')
       }
+    },
+    created() {
     }
   }
 </script>
@@ -200,11 +203,16 @@
 
   /* animation */
   .slide-left-enter-active {
-    transition-delay: .1s;
+    transition-delay: 50ms;
   }
 
   .fade-leave-active {
     transition-delay: 50ms;
   }
-
+  .blank-enter-active {
+    transition: all .3s;
+  }
+  .blank-leave-active {
+    transition: all .3s;
+  }
 </style>
