@@ -49,7 +49,7 @@
   }
   .slide-left-enter-active,
   .slide-left-leave-active {
-    transition: all .3s;
+    transition: all .2s;
   }
 
   .fade {
@@ -64,17 +64,12 @@
     opacity: 1;
   }
   .fade-enter-active {
-    transition: opacity .3s ease-out;
+    transition: opacity .2s ease-out;
   }
   .fade-leave-active {
-    transition: opacity .3s ease-in;
+    transition: opacity .2s ease-in;
   }
-  .blank-enter-active {
-    transition: all .4s;
-  }
-  .blank-leave-active {
-    transition: all .5s;
-  }
+
   /* global setting */
   .icon {
     display: inline-block;

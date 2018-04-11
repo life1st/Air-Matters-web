@@ -19,11 +19,18 @@
     data() {
       return {
         title: '在意空气',
-        isOpenMenu: false
+        isOpenMenu: false,
+        touch: {
+          start: [0, 0],
+          end: [0, 0]
+        }
       }
     },
     components: {
       hamburger
+    },
+    created() {
+      this.initTouchEvent()
     },
     methods: {
       openMenu() {
@@ -31,6 +38,35 @@
       },
       hideMenu() {
         this.isOpenMenu = false
+      },
+      initTouchEvent() {
+        window.addEventListener('touchstart', e => {
+          this.touch.start[0] = e.changedTouches[0].clientX
+          this.touch.start[1] = e.changedTouches[0].clientY
+        })
+        window.addEventListener('touchend', e => {
+          this.touch.end[0] = e.changedTouches[0].clientX
+          this.touch.end[1] = e.changedTouches[0].clientY
+          this.canOpenMenu()
+        })
+      },
+      canOpenMenu() {
+        let startX = this.touch.start[0]
+        let endX = this.touch.end[0]
+        let startY = this.touch.start[1]
+        let endY = this.touch.end[1]
+        let windowX = document.body.clientWidth
+        /*
+        *  停止位置 X 坐标 - 起始位置 X 坐标 < 10 像素
+        *  起始位置 X 坐标 < 屏幕宽度的 1/3
+        *  停止位置 Y 坐标 - 起始位置 Y 坐标 < 100 像素
+        *  满足全部条件 => 触发菜单打开
+        * */
+        if (Math.abs(endX - startX) > 10
+          && startX < windowX / 3
+          && Math.abs(endY - startY) < 100) {
+          this.openMenu()
+        }
       }
     }
   }

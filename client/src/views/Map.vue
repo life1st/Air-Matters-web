@@ -1,12 +1,12 @@
 <template>
-  <div class="map">
+  <div class="air-map">
     <p>this is map components</p>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'map',
+    name: 'airMap',
   }
 </script>
 
