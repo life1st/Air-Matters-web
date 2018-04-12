@@ -1,25 +1,57 @@
 <template>
   <div class="city-card">
-    <div>
-      <div class="text-info">
+    <div class="main-info">
+      <div class="left">
         <p class="city-name">{{cityName}}</p>
         <div class="aqi">
           <span class="title">空气质量指数</span>
           <span class="value">{{aqi}}</span>
         </div>
       </div>
+      <div class="right">
+        <span class="aqi-num"></span>
+        <div class="symbol" :style="`background: ${aqiColor}`"></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { getCity } from "../../api";
+
   export default {
     name: "card",
     data() {
       return {
-        cityName: '北京',
-        aqi: '中等'
+        cityName: '',
+        aqi: '',
+        info: {}
       }
+    },
+    props: {
+      cityInfo: {
+        type: Object,
+      }
+    },
+    computed: {
+      aqiColor() {
+        let level = this.info
+      }
+    }
+    methods: {
+      setCityData() {
+        let config = {
+          country: this.cityInfo.url_key,
+          city: this.cityInfo.name,
+          id: this.cityInfo.place_id
+        }
+        getCity(config).then(res => {
+          this.info = res
+        })
+      }
+    },
+    created() {
+      this.setCityData()
     }
   }
 </script>

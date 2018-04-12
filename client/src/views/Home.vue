@@ -1,14 +1,14 @@
 <template>
-  <div class="home">
+  <div class="home" v-if="hotCitys.length > 0">
     <div class="title">
       <p>收藏的地点</p>
     </div>
-    <city-card />
+    <city-card v-for="city in hotCitys" :key="city.name" :cityInfo="city"/>
   </div>
 </template>
 <script>
   import cityCard from '../components/city/card'
-  import { getAllCity } from "../api";
+  import { getAllCitys } from "../api";
 
   export default {
     name: "home",
@@ -25,20 +25,18 @@
       getHotCitys() {
         let citys = ['beijing', 'shanghai', 'chongqing']
         let allCitys = this.citys
-        this.hotCitys = this.citys.filter(city => {
+        this.hotCitys = allCitys.filter(city => {
           city = city.name.toLowerCase()
-          citys.forEach(hot => {
-            console.log(hot, city)
-            return city.indexOf(hot) != -1
-          })
+          for (let hot of citys) {
+            if (city.indexOf(hot) != -1) {
+              return true
+            }
+          }
         })
       }
     },
     created() {
-
-
-
-      getAllCity().then(res => {
+      getAllCitys().then(res => {
         this.citys = res
         this.getHotCitys()
       }).catch(err => {
