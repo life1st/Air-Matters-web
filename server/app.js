@@ -24,7 +24,7 @@ async function getCity(ctx) {
   let country = parmas.country
   let city = parmas.city
   let id = parmas.id
-  let lang = parmas.lang || 'en'
+  let lang = parmas.lang || 'zh_Hans'
   let benchMark = parmas.benchmark || 'aqi_us'
   let place_URL =
     (country, city, LANG, benchMark, id) =>

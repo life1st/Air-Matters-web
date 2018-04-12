@@ -1,27 +1,29 @@
-const Koa = require('koa')
-const app = new Koa()
+const koa = require('koa')
+const app = new koa()
+const axios = require('axios')
+const router = require('koa-router')()
+const cors = require('@koa/cors')
+const fs = require('fs')
 
+// CORS
+app.use(cors())
+// router
+router.get('/all', getCitys)
+  .get('/city', getCity)
 
-const one = (ctx, next) => {
-  console.log('>> one');
-  next();
-  console.log('<< one');
+function getCitys(ctx) {
+  console.log('get Citys', ctx.request)
+  fs.readFile('../data/fakeCitysData.json', (err, res) => {
+    console.log(res)
+    ctx.status = 200
+    ctx.body = res
+  })
 }
 
-const two = (ctx, next) => {
-  console.log('>> two');
-  next();
-  console.log('<< two');
+async function getCity() {
+  let res = await fs.readFile('../data/fakeCityData_beijing.json')
+  ctx.status = 200
+  ctx.body = res
 }
-
-const three = (ctx, next) => {
-  console.log('>> three');
-  next();
-  console.log('<< three');
-}
-
-app.use(one);
-app.use(two);
-app.use(three);
 
 app.listen(3000)

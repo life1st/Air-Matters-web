@@ -14,7 +14,8 @@
   }
 </script>
 <style lang="less">
-  @import "~normalize.css";
+  @import (less) "~normalize.css";
+  @import "assets/css/animation.less";
   #app {
     /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
     /*font-family: 'STXihei';*/
@@ -33,41 +34,6 @@
         color: #42b983;
       }
     }
-  }
-
-  /* animation */
-  .slide-left {
-
-  }
-  .slide-left-enter,
-  .slide-left-leave-to {
-    transform: translateX(-100%);
-  }
-  .slide-left-enter-to,
-  .slide-left-leave {
-    transform: translateX(0);
-  }
-  .slide-left-enter-active,
-  .slide-left-leave-active {
-    transition: all .2s;
-  }
-
-  .fade {
-
-  }
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
-  .fade-enter-to,
-  .fade-leave {
-    opacity: 1;
-  }
-  .fade-enter-active {
-    transition: opacity .2s ease-out;
-  }
-  .fade-leave-active {
-    transition: opacity .2s ease-in;
   }
 
   /* global setting */
