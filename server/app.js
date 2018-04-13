@@ -58,7 +58,7 @@ async function getCity(ctx) {
   }
   let url = place_URL(country, city, lang, benchMark, id)
   let res
-  if (city.name) {
+  if (city) {
     console.log('cache city data.')
     res = city.name
   } else {
@@ -146,6 +146,7 @@ async function getCity(ctx) {
         }
       })
     console.log('new city data.')
+    city = {}
     city.name = res
   }
   ctx.status = 200
