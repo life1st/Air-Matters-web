@@ -58,9 +58,8 @@ async function getCity(ctx) {
   }
   let url = place_URL(country, city, lang, benchMark, id)
   let res
-  if (city) {
-    console.log('cache city data.')
-    res = city.name
+  if (city && city[country]) {
+    res = city[country]
   } else {
     res = await axios.get(url)
       .then(res => {
@@ -145,9 +144,8 @@ async function getCity(ctx) {
           ...result, aqi, pollutant, healthAdvice, weatherForecast
         }
       })
-    console.log('new city data.')
     city = {}
-    city.name = res
+    city[name] = res
   }
   ctx.status = 200
   ctx.body = res

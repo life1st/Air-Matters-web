@@ -48,6 +48,18 @@
 <style scoped lang="less">
   .home {
     background-color: #f1f1f1;
-    min-height: 100%;
+    min-height: 100vh;
+    .title {
+      font-size: 35px / 3;
+      margin-left: 18px /3;
+      padding-top: 62px / 3;
+      text-align: left;
+      box-sizing: border-box;
+      color: #6e6e6e;
+      p {
+        padding-left: 33px / 3;
+        margin: 0;
+      }
+    }
   }
 </style>

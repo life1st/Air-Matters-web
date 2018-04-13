@@ -7,6 +7,7 @@ import Discovery from './views/Discovery'
 import Map from './views/Map'
 import Ranking from './views/Ranking'
 import Setting from './views/Setting'
+import detail from './components/city/detail'
 Vue.use(Router);
 
 export default new Router({
@@ -49,6 +50,11 @@ export default new Router({
       path: '/setting',
       name: 'setting',
       component: Setting
+    },
+    {
+      path: '/detail/:city',
+      name: 'cityDetail',
+      component: detail
     }
   ],
 });
