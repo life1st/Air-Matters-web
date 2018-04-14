@@ -32,8 +32,10 @@ export function getCity(config) {
 }
 
 export function getLocation() {
-  const BASE_URL = 'http://ip-api.com/json'
-  let url = `${BASE_URL}?${API_KEY}`
+  // const BASE_URL = 'http://ip-api.com/json'
+  const BASE_URL = 'http://apis.map.qq.com/ws/location/v1/ip'
+  const API_KEY = 'CSIBZ-4LKWV-HNIPZ-UYVZG-BYG6O-PSBMP'
+  let url = `${BASE_URL}?key=${API_KEY}`
   return axios.get(url).then(res => {
     return new Promise(resolve => resolve(res.data))
   })

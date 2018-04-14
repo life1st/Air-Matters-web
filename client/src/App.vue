@@ -16,6 +16,8 @@
     created() {
       getLocation().then(res => {
         console.log(res, 'get location.')
+      }).catch(err => {
+        console.log(err, 'get err.')
       })
     }
   }
