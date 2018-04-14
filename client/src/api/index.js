@@ -30,3 +30,11 @@ export function getCity(config) {
     return new Promise(resolve => resolve(res.data))
   })
 }
+
+export function getLocation() {
+  const BASE_URL = 'http://ip-api.com/json'
+  let url = `${BASE_URL}?${API_KEY}`
+  return axios.get(url).then(res => {
+    return new Promise(resolve => resolve(res.data))
+  })
+}

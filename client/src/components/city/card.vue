@@ -120,7 +120,7 @@
     border: 1px solid #efefef;
     border-radius: 9px / 3;
     background-color: #fff;
-    box-shadow: 1px 2px 2px #c1c1c1;
+    box-shadow: 1px 1px 1px #ccc;
     text-align: left;
     /* public */
     .title {

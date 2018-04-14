@@ -6,10 +6,17 @@
 </template>
 <script>
   import navigator from './components/navigator'
+  import store from 'store'
+  import { getLocation } from "./api";
 
   export default {
     components: {
       navigator
+    },
+    created() {
+      getLocation().then(res => {
+        console.log(res, 'get location.')
+      })
     }
   }
 </script>
