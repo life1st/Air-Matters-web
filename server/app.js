@@ -48,12 +48,16 @@ async function getCity(ctx) {
   ctx.body = res
 }
 async function getRanking(ctx) {
-  let url = 'https://air-quality.com/data/get_ranking'
-  let res = await axios.get(url).then(res => {
-    return res.data
-  })
+  let BASE_URL = 'https://air-quality.com/data/get_ranking'
+  let parmas = ctx.query
+  let standard = parmas.standards | 'aqi_us'
+  let order = parmas.order | 'worst'
+  let lang = parmas.lang | 'zh-Hans'
+  let url = `${BASE_URL}?standard=${standard}&order=${order}&lang=${lang}`
+  const dataKey = 'ranking'
+  let res = await _.getData(url, dataKey, data)
   ctx.status = 200
-  ctx.body = res
+  ctx.body = res.data
 }
 app.use(router.routes())
 console.log('app listen: 3000')
