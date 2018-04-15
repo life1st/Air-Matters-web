@@ -1,9 +1,12 @@
 import axios from 'axios'
 
-// let BASE_URL = 'http://api.life1st.cn/air'
+let BASE_URL
 // let BASE_URL = 'http://192.168.0.112:3000'
-let BASE_URL = 'http://localhost:3000'
-
+// let BASE_URL = 'http://localhost:3000'
+const hostname = location.hostname
+hostname == 'localhost'
+  ? BASE_URL = 'http://api.life1st.cn/air'
+  : BASE_URL = 'http://localhost:3000'
 export function getAllCitys() {
   let url = `${BASE_URL}/all`
   return axios.get(url).then(res => {
