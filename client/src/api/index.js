@@ -5,8 +5,8 @@ let BASE_URL
 // let BASE_URL = 'http://localhost:3000'
 const hostname = location.hostname
 hostname == 'localhost'
-  ? BASE_URL = 'http://api.life1st.cn/air'
-  : BASE_URL = 'http://localhost:3000'
+  ? BASE_URL = 'http://localhost:3000'
+  : BASE_URL = 'http://api.life1st.cn/air'
 export function getAllCitys() {
   let url = `${BASE_URL}/all`
   return axios.get(url).then(res => {
