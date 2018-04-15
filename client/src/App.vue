@@ -14,11 +14,11 @@
       navigator
     },
     created() {
-      getLocation().then(res => {
-        console.log(res, 'get location.')
-      }).catch(err => {
-        console.log(err, 'get err.')
-      })
+      // getLocation().then(res => {
+      //   console.log(res, 'get location.')
+      // }).catch(err => {
+      //   console.log(err, 'get err.')
+      // })
 
       getRanking().then(res => {
         console.log(res, 'get ranking.')
