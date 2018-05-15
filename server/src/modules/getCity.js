@@ -1,36 +1,8 @@
-const koa = require('koa')
-const app = new koa()
-const axios = require('axios')
-const router = require('koa-router')()
-const cors = require('@koa/cors')
 const cheerio = require('cheerio')
-// CORS
-app.use(cors())
-// router
-router.get('/all', getCitys)
-  .get('/city', getCity)
-let citys = null
-let city = null
+const axios = require('axios')
 
-const delay = 1000 * 60 * 60
-setInterval(() => {
-  citys = null
-  city = null
-}, delay)
-async function getCitys(ctx) {
-  let url = 'https://air-matters.com/js/data/map_en_aqi_us.js'
-  let res
-  if (citys) {
-    console.log('cache data.')
-    res = citys
-  } else {
-    console.log('new data.')
-    res = await axios.get(url)
-    citys = res
-  }
-  ctx.status = 200
-  ctx.body = res.data
-}
+let { city } = require('../db/data')
+
 async function getCity(ctx) {
   let parmas = ctx.query
   const BASE_URL = 'https://app.air-matters.com/place/'
@@ -150,6 +122,5 @@ async function getCity(ctx) {
   ctx.status = 200
   ctx.body = res
 }
-app.use(router.routes())
-console.log('app listen: 3000')
-app.listen(3000)
+
+module.exports = getCity
