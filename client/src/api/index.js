@@ -1,9 +1,12 @@
 import axios from 'axios'
 
-let BASE_URL = 'http://api.life1st.cn/air'
+let BASE_URL
 // let BASE_URL = 'http://192.168.0.112:3000'
 // let BASE_URL = 'http://localhost:3000'
-
+const hostname = location.hostname
+hostname == 'localhost'
+  ? BASE_URL = 'http://localhost:3000'
+  : BASE_URL = 'http://api.life1st.cn/air'
 export function getAllCitys() {
   let url = `${BASE_URL}/all`
   return axios.get(url).then(res => {
@@ -31,9 +34,19 @@ export function getCity(config) {
   })
 }
 
+export function getRanking() {
+  let url = `${BASE_URL}/ranking`
+  return axios.get(url).then(res => {
+    console.log(res)
+    return new Promise(resolve => resolve(res))
+  })
+}
+
 export function getLocation() {
-  const BASE_URL = 'http://ip-api.com/json'
-  let url = `${BASE_URL}?${API_KEY}`
+  // const BASE_URL = 'http://ip-api.com/json'
+  const BASE_URL = 'http://apis.map.qq.com/ws/location/v1/ip'
+  const API_KEY = 'CSIBZ-4LKWV-HNIPZ-UYVZG-BYG6O-PSBMP'
+  let url = `${BASE_URL}?key=${API_KEY}`
   return axios.get(url).then(res => {
     return new Promise(resolve => resolve(res.data))
   })

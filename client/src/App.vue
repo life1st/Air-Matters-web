@@ -7,15 +7,21 @@
 <script>
   import navigator from './components/navigator'
   import store from 'store'
-  import { getLocation } from "./api";
+  import { getLocation, getRanking } from "./api";
 
   export default {
     components: {
       navigator
     },
     created() {
-      getLocation().then(res => {
-        console.log(res, 'get location.')
+      // getLocation().then(res => {
+      //   console.log(res, 'get location.')
+      // }).catch(err => {
+      //   console.log(err, 'get err.')
+      // })
+
+      getRanking().then(res => {
+        console.log(res, 'get ranking.')
       })
     }
   }

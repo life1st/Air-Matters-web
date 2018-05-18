@@ -1,7 +1,9 @@
 <template>
   <div class="about">
     <p class="describe"><img src="../assets/icon/logo.png" alt="app-logo" class="icon"></p>
-    <h1>This is an about page</h1>
+    <h1>Air-Matters</h1>
+    <p>This is a personal project.</p>
+    <p>It's unofficial.</p>
   </div>
 </template>
 <script>
@@ -10,8 +12,8 @@
 <style scoped lang="less">
   .about {
     .icon {
-      width: 40px;
-      height: 40px;
+      width: 80px;
+      height: 80px;
     }
   }
 </style>

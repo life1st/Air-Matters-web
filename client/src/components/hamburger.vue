@@ -59,7 +59,7 @@
     name: "hamburger",
     data() {
       return {
-        appVersion: '0.1.0',
+        appVersion: '0.3.2',
         userName: '未登录',
         avatarSrc: defaultAvatar,
         menuList: [
