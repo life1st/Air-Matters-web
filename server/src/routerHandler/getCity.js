@@ -4,18 +4,18 @@ const axios = require('axios')
 let { city } = require('../db/data')
 
 async function getCity(ctx) {
-  let parmas = ctx.query
-  const BASE_URL = 'https://app.air-matters.com/place/'
+  let parmas = ctx && ctx.query || {}
+  const BASE_URL = 'https://air-quality.com/place/china/shanghai/4e4d63c9?lang=zh-Hans&standard=aqi_us'
   /*   `china/beijing/en/aqi_us/8733f5dd`*/
   /*   `${country}/${city}/${LANG}/${benchMark}/${link}*/
-  let country = parmas.country
-  let name = parmas.city
-  let id = parmas.id
+  let country = parmas.country || 'china'
+  let city = parmas.city || 'shanghai'
+  let id = parmas.id || '4e4d63c9'
   let lang = parmas.lang || 'zh_Hans'
   let benchMark = parmas.benchmark || 'aqi_us'
   let place_URL =
     (country, city, LANG, benchMark, id) =>
-      `${BASE_URL}${country}/${LANG}/${benchMark}/${id}`
+      `${BASE_URL}/place/${country}/${city}/${id}?lang=${LANG}&standard=${benchMark}/`
   let getLevel = (color) => {
     switch (color) {
       case '#e02d1c':
@@ -37,23 +37,23 @@ async function getCity(ctx) {
       .then(res => {
         let data = res.data
         const $ = cheerio.load(data)
-        let result = {
-          city: $('#nameBox').find('h2').text(),
-          country: $('#nameBox').find('p').text(),
+        let position = {
+          city: $('.detail-title').find('h2').text(),
+          country: $('.detail-title').find('p').text(),
         }
         let chartBox = $('#chartBox')
         let aqi = {
           title: chartBox.find('.title').text(),
           value: chartBox.find('.indexValue').text(),
-          min: chartBox.find('.minValue').text(),
-          max: chartBox.find('.maxValue').text(),
+          min: /*chartBox.find('.minValue').text()*/ 0,
+          max: /*chartBox.find('.maxValue').text()*/ 500,
           standards: chartBox.find('.level').text()
         }
-        let pollutantBox = $('#pollutantBox')
+        let readingBox = $('.reading-box')
         let pollutant = {
-          title: pollutantBox.find('h3').text(),
+          title: readingBox.find('pollutants_link').text(),
         }
-        pollutantBox.find('.pollutantItem').each((i, ele) => {
+        readingBox.find('.pollutant-item').each((i, ele) => {
           let e = $(ele)
           let name = e.find('.name').text()
           pollutant[name] = {
@@ -75,9 +75,9 @@ async function getCity(ctx) {
             level: getLevel(e.find('.bg').css('background'))
           }
         })
-        let weatherForecastBox = $('#weatherForecastBox')
-        let weatherForecast = {
-          title: weatherForecastBox.find('h3').text(),
+        let weatherBox = $('.weather-box')
+        let weather = {
+          title: weatherBox.find('h3').text(),
           hourly: [],
           daily: []
         }
@@ -92,9 +92,9 @@ async function getCity(ctx) {
           arr.pop()
           return arr
         }
-        weatherForecastBox.find('.hourlyForecastItem').each((i, ele) => {
+        weatherBox.find('.hourlyForecastItem').each((i, ele) => {
           let e = $(ele)
-          weatherForecast.hourly.push({
+          weatherBox.hourly.push({
             time: e.find('.time').text(),
             icon: getWeatherIcon(e.find('.icon').css('background-image')),
             temp: getWeatherTemp(e.find('.temp').text())
@@ -137,3 +137,5 @@ async function getRanking(ctx) {
   ctx.status = 200
   ctx.body = res.data
 }
+
+getCity()

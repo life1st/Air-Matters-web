@@ -1,11 +1,10 @@
 const router = require('koa-router')()
 
-const getCity = require('../modules/getCity')
-const getAll = require('../modules/getAll')
-const getHistory = require('../modules/getHistory')
+const ListRouter = require('./List')
+const {
+  getAll, getCity, getHistory
+} = require('../routerHandler')
 
-router.get('/all', getAll)
-  .get('/city', getCity)
-  .get('/history', getHistory)
+router.use('/list', ListRouter.routes())
 
 module.exports = router
