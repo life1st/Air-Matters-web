@@ -35,10 +35,8 @@
   .list {
     .item {
       text-align: left;
-      line-height: 60px;
+      line-height: 58px;
       height: 60px;
-      padding-left: 20px;
-      padding-right: 18px;
       .icon {
         float: right;
       }

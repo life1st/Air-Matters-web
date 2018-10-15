@@ -7,7 +7,10 @@
            @click="openSearch">&#xe62e;</i>
         <i class="iconfont add"
            v-if="showAdd"
-           @click="handleAddClick">&#xe6d5;</i>
+           @click="emitClick('onAddClick', $event)">&#xe6d5;</i>
+        <i class="iconfont share"
+           v-if="showShare"
+           @click="emitClick('onShareClick', $event)">&#xe61d;</i>
       </span>
       <span class="icon left">
         <i class="menu"
@@ -46,6 +49,10 @@
         type: Boolean,
         default: () => false
       },
+      showShare: {
+        type: Boolean,
+        default: () => false
+      },
       title: {
         type: String,
         default: () => 'Air Matters'
@@ -81,13 +88,13 @@
       openSearch() {
         this.isOnSearch = true
       },
+      emitClick(type, event) {
+        this.$emit(type, event)
+      },
       emitSearch(e) {
         let key = e.target.key
         alert(key)
         this.$emit('onSearch')
-      },
-      handleAddClick() {
-
       },
       initTouchEvent() {
         window.addEventListener('touchstart', e => {
@@ -123,6 +130,11 @@
 </script>
 <style scoped lang="less">
   .navigator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
     .header {
       @h: 168px / 3;
       position: relative;

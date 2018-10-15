@@ -1,12 +1,22 @@
 <template>
-  <div class="home" v-if="hotCitys.length > 0">
-    <div class="title">
-      <p>收藏的地点</p>
+  <div class="home-wrap">
+    <navigator :show-share="true" />
+    <div class="home" v-if="hotCitys.length > 0">
+      <div class="title">
+        <p>收藏的地点</p>
+      </div>
+      <city-card
+        :cityInfo="city"
+        :key="city.name"
+        v-for="city in hotCitys" />
     </div>
-    <city-card v-for="city in hotCitys" :key="city.name" :cityInfo="city"/>
+    <div class="home" v-else>
+      <p style="margin: 0; padding: 12px 0; color: #ccc;">No data yet.</p>
+    </div>
   </div>
 </template>
 <script>
+  import navigator from '../components/navigator'
   import cityCard from '../components/city/card'
   import { getAllCitys } from "../api";
 
@@ -19,7 +29,8 @@
       }
     },
     components: {
-      cityCard
+      cityCard,
+      navigator
     },
     methods: {
       getHotCitys() {
@@ -46,6 +57,10 @@
   }
 </script>
 <style scoped lang="less">
+  @import "../assets/css/verb";
+  .home-wrap {
+    padding-top: @navigator-h;
+  }
   .home {
     background-color: #f1f1f1;
     min-height: 100vh;

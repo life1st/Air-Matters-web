@@ -1,20 +1,12 @@
 <template>
   <div id="app">
-    <navigator
-      :show-back="showBack"
-      :show-add="showAdd"
-      :title="title" />
     <router-view />
   </div>
 </template>
 <script>
-  import navigator from './components/navigator'
   import { getLocation, getRanking } from "./api";
 
   export default {
-    components: {
-      navigator
-    },
     data() {
       return {
         showBack: false,
@@ -51,7 +43,7 @@
       // getRanking().then(res => {
       //   console.log(res, 'get ranking.')
       // })
-      this.handleRouteChange(this.$route.path)
+      // this.handleRouteChange(this.$route.path)
     }
   }
 </script>
