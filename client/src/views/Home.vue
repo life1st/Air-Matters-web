@@ -36,12 +36,12 @@
       }
     },
     created() {
-      getAllCitys().then(res => {
-        this.citys = res
-        this.getHotCitys()
-      }).catch(err => {
-        console.log(err)
-      })
+      // getAllCitys().then(res => {
+      //   this.citys = res
+      //   this.getHotCitys()
+      // }).catch(err => {
+      //   console.log(err)
+      // })
     }
   }
 </script>

@@ -1,10 +1,10 @@
 const cheerio = require('cheerio')
 const axios = require('axios')
-
+const { saveFileFromInternet} = require('../../utils/saveFile2Local')
 async function getCountryList(ctx) {
   const { lang: LANG = 'zh-Hans' } = ctx.query
   // const URL = `https://air-quality.com/places?lang=${LANG}`
-  const URL = 'http://192.168.1.191:8000/country.html'
+  const URL = 'http://localhost:8000/country.html'
 
   let res = await axios.get(URL).then(({data}) => {
     if (!data ) return { ok: false}
@@ -19,9 +19,10 @@ async function getCountryList(ctx) {
       countries.each(function () {
         const country = $(this)
         let bgImg = country.css('background-image')
+        bgImg = 'https://air-quality.com/' + bgImg.slice(4, bgImg.length - 1)
+
         let href = country.attr('href')
         let name = country.find('.country-name').text()
-        console.log(land[landName])
         lands[landName].push({
           bgImg, href, name
         })

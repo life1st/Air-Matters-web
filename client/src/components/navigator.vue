@@ -1,9 +1,26 @@
 <template>
   <div class="navigator">
     <div class="header">
-      <i class="icon"
-         @click="openMenu"></i>
-      <p class="title">{{title}}</p>
+      <span class="icon right">
+        <i class="iconfont search"
+           v-if="showSearch"
+           @click="openSearch">&#xe62e;</i>
+        <i class="iconfont add"
+           v-if="showAdd"
+           @click="handleAddClick">&#xe6d5;</i>
+      </span>
+      <span class="icon left">
+        <i class="menu"
+           v-if="!showBack"
+           @click="openMenu"></i>
+        <i class="iconfont go-back"
+           v-if="showBack"
+           @click="goBack">&#xe604;</i>
+      </span>
+      <p class="title search" v-show="isOnSearch">
+        <input type="text" :value="searchValue" @keydown="emitSearch">
+      </p>
+      <p class="title" v-show="!isOnSearch">{{title}}</p>
     </div>
     <hamburger v-show="isOpenMenu"
                :isMenuShow="isOpenMenu"
@@ -16,10 +33,29 @@
   import hamburger from './hamburger'
   export default {
     name: "navigator",
+    props: {
+      showBack: {
+        type: Boolean,
+        default: () => false
+      },
+      showAdd: {
+        type: Boolean,
+        default: () => false
+      },
+      showSearch: {
+        type: Boolean,
+        default: () => false
+      },
+      title: {
+        type: String,
+        default: () => 'Air Matters'
+      },
+    },
     data() {
       return {
-        title: '在意空气',
         isOpenMenu: false,
+        isOnSearch: false,
+        searchValue: '',
         touch: {
           start: [0, 0],
           end: [0, 0]
@@ -38,6 +74,20 @@
       },
       hideMenu() {
         this.isOpenMenu = false
+      },
+      goBack() {
+        this.$router.go(-1)
+      },
+      openSearch() {
+        this.isOnSearch = true
+      },
+      emitSearch(e) {
+        let key = e.target.key
+        alert(key)
+        this.$emit('onSearch')
+      },
+      handleAddClick() {
+
       },
       initTouchEvent() {
         window.addEventListener('touchstart', e => {
@@ -63,7 +113,7 @@
         *  满足全部条件 => 触发菜单打开
         * */
         if (Math.abs(endX - startX) > 10
-          && startX < windowX / 3
+          && startX < windowX / 5
           && Math.abs(endY - startY) < 100) {
           this.openMenu()
         }
@@ -84,13 +134,25 @@
         @w: 60px / 3;
         @h: 48px / 3;
         width: @w;
-        height: @h;
-        background-image: url("../assets/icon/icon-menu.png");
-        background-size: @w @h;
         position: absolute;
-        left: 54px / 3;
         top: 50%;
         transform: translateY(-50%);
+        &.left {
+          left: 54px / 3;
+        }
+        &.right {
+          right: 54px / 3;
+        }
+        .menu {
+          display: block;
+          width: @w;
+          height: @h;
+          background-image: url("../assets/icon/icon-menu.png");
+          background-size: @w @h;
+        }
+        .go-back {
+          font-size: 22px;
+        }
       }
       .title {
         margin: 0 auto;
