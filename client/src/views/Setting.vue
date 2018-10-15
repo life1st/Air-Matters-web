@@ -4,7 +4,8 @@
     <pureList
       class="setting-list"
       :data="setting"
-      v-for="setting in settingList" >
+      :key="index"
+      v-for="(setting, index) in settingList" >
       <div class="setting-item" slot-scope="{data}">
         <span class="text">{{data.name}}</span>
       </div>
