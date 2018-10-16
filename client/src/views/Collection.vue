@@ -49,7 +49,6 @@
     },
     watch: {
       '$route' (to, from) {
-        console.log(to.name)
         switch (to.name) {
           case 'collection-main':
             this.isShowAdd = true
@@ -78,6 +77,7 @@
     },
     methods: {
       handleLandClick(val) {
+        console.log(val)
         this.$router.push({
           path: `/collection/add/${val}`
         })

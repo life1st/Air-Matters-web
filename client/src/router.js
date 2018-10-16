@@ -36,18 +36,18 @@ export default new Router({
       name: 'collection',
       component: Collection,
       children: [
+        // {
+        //   path: 'add/:land/:country',
+        //   name: 'City',
+        //   component: City
+        // },
+        // {
+        //   path: 'add/:land',
+        //   name: 'Country',
+        //   component: Country
+        // },
         {
-          path: 'add/:land/:country',
-          name: 'City',
-          component: City
-        },
-        {
-          path: 'add/:land',
-          name: 'Country',
-          component: Country
-        },
-        {
-          path: 'add',
+          path: 'add*',
           name: 'lands',
           component: Lands
         },
