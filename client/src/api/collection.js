@@ -9,3 +9,14 @@ export function getCountryList() {
     }
   }))
 }
+
+// todo fake data
+import city from  './data/city'
+export function getCityList() {
+  return new Promise(resolve => resolve({
+    data: {
+      ok: true,
+      data: city
+    }
+  }))
+}

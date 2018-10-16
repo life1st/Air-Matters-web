@@ -6,9 +6,6 @@
         v-for="(item, index) in data" >
       <slot :data="item">
         <span class="text">{{item}}</span>
-        <span class="icon">
-          <i class="iconfont right">&#xe655;</i>
-        </span>
       </slot>
     </li>
   </ul>
@@ -37,9 +34,6 @@
       text-align: left;
       line-height: 58px;
       height: 60px;
-      .icon {
-        float: right;
-      }
       overflow: hidden;
     }
   }

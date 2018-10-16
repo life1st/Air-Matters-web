@@ -1,0 +1,325 @@
+<html>
+<head>
+  <title>中国大陆 实时空气质量指数 (AQI), PM2.5 与空气污染报告 - 在意空气</title>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-itunes-app" content="app-id=477700080">
+  <meta name="keywords" content="空气质量指数, 空气质量, 花粉, 过敏, Air Matters, 在意空气, PM2.5, 空气污染, 雾, 霾, 空气, 手机软件, 手机App, App, Fresh-Ideas Studio, Weather, Health &amp; Fitness, ios apps, app, appstore, app store, iphone, ipad, ipod touch, itouch, itunes">
+  <meta name="description" content="实时查询全球超过 50 个国家的空气质量和花粉信息。">
+  <meta property="qc:admins" content="26052465076625305145136337" />
+  <meta property="al:ios:url" content="https://air-matters.com" />
+  <meta property="al:ios:app_store_id" content="477700080" />
+  <meta property="al:ios:app_name" content="Air Matters" />
+  <meta property="al:android:url" content="https://air-matters.com" />
+  <meta property="al:android:app_name" content="Air Matters" />
+  <meta property="al:android:package" content="com.freshideas.airindex" />
+  <meta property="al:web:url" content="https://air-matters.com" />
+  <meta property="og:title" content="中国大陆 实时空气质量指数 (AQI), PM2.5 与空气污染报告 - 在意空气" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://air-quality.com/" />
+  <meta property="og:image" content="https://air-quality.com/css/images/appicon_512.png" />
+  <link rel="alternate" hreflang="zh-CN" href="https://air-quality.com/country/china/ce4c01d6?lang=zh-Hans&standard=aqi_us" />
+  <link rel="alternate" hreflang="zh-TW" href="https://air-quality.com/country/china/ce4c01d6?lang=zh-Hant&standard=aqi_us" />
+  <link rel="alternate" hreflang="en" href="https://air-quality.com/country/china/ce4c01d6?lang=en&standard=aqi_us" />
+  <link rel="alternate" hreflang="ja" href="https://air-quality.com/country/china/ce4c01d6?lang=ja&standard=aqi_us" />
+  <link rel="alternate" hreflang="ko" href="https://air-quality.com/country/china/ce4c01d6?lang=ko&standard=aqi_us" />
+  <link rel="alternate" hreflang="de" href="https://air-quality.com/country/china/ce4c01d6?lang=de&standard=aqi_us" />
+  <link rel="alternate" hreflang="fr" href="https://air-quality.com/country/china/ce4c01d6?lang=fr&standard=aqi_us" />
+  <base href="https://air-quality.com/" />
+  <script language="javascript" type="text/javascript">
+    var baseURL = "https://air-quality.com/";
+    var langCode = "zh-Hans";
+  </script>
+
+  <link href="https://air-quality.com/css/bootstrap/font-awesome.min.css" rel="stylesheet">
+  <link href="https://air-quality.com/css/bootstrap/bootstrap.css" rel="stylesheet">
+  <link href="https://air-quality.com/css/bootstrap/navbar-fixed-top.css" rel="stylesheet">
+  <link href="https://air-quality.com/css/jquery-ui.min.css" rel="stylesheet">
+  <link href="https://air-quality.com/css/notie/notie.min.css" rel="stylesheet">
+  <link href="https://air-quality.com/css/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+  <link href="https://air-quality.com/css/leaflet/leaflet.css" rel="stylesheet">
+  <link rel="stylesheet" media="screen and (min-width: 1023px)" href="https://air-quality.com/css/basic.css">
+  <link rel="stylesheet" media="screen and (max-width: 1023px)" href="https://air-quality.com/css/basic_m.css">
+
+  <script src="https://air-quality.com/js/jquery-2.2.4.min.js"></script>
+  <script src="https://air-quality.com/js/jquery-ui.min.js"></script>
+  <script src="https://air-quality.com/js/matchMedia.js"></script>
+  <script src="https://air-quality.com/js/bootstrap/bootstrap.js"></script>
+  <script src="https://air-quality.com/js/notie/notie.min.js"></script>
+  <script src="https://air-quality.com/js/bootbox/bootbox.min.js"></script>
+  <script src="https://air-quality.com/js/api-web/basic.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85721203-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-85721203-3');
+  </script>
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://air-quality.com/">
+        <img class="navbar-brand-image" alt="Brand" src="css/images/logo_air_quality_com.png">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav" id="nav-menu">
+        <!-- 	    <li><a href="https://air-matters.com">App</a></li> -->
+        <!--
+                  <li><a href="https://air-quality.com/map">Map</a></li>
+
+              <li><a href="https://dev.air-matters.com" target="_blank">Data API</a></li>
+        -->
+
+      </ul>
+
+      <ul class="navbar-nav nav navbar-right">
+        <li><a href="https://air-quality.com/places?lang=zh-Hans&standard=aqi_us">地点列表</a></li>
+        <li class="dropdown standard-list" id="standard-nav-list">
+          <a href="#" class="nav__link dropdown-toggle bg-hover-color" data-toggle="dropdown">AQI (美国标准) <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li value="aqi_cn">AQI (中国标准)</li><li value="aqi_nl">AQI (荷兰标准)</li><li value="aqi_us">AQI (美国标准)</li><li value="caqi_eu">CAQI (欧洲标准)</li><li value="daqi_uk">AQI (英国标准)</li><li value="naqi_in">AQI (印度标准)</li>
+          </ul>
+        </li>
+        <li class="dropdown lang-list">
+          <a href="#" class="nav__link dropdown-toggle bg-hover-color zh-Hans" data-toggle="dropdown">&nbsp; <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="Javascript:changeLang('en');" class="en bg-hover-color">English</a></li><li><a href="Javascript:changeLang('fr');" class="fr bg-hover-color">Français</a></li><li><a href="Javascript:changeLang('de');" class="de bg-hover-color">Deutsch</a></li><li><a href="Javascript:changeLang('ja');" class="ja bg-hover-color">日本語</a></li><li><a href="Javascript:changeLang('ko');" class="ko bg-hover-color">한국어</a></li><li><a href="Javascript:changeLang('zh-Hans');" class="zh-Hans bg-hover-color">简体中文</a></li><li><a href="Javascript:changeLang('zh-Hant');" class="zh-Hant bg-hover-color">繁體中文</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" id="search-ac-nav" title="search place" placeholder="搜索地点" class="form-control ui-autocomplete-input" autocomplete="off">
+        </div>
+        <!--
+              <button type="submit" class="btn btn-default">地点列表</button>
+        -->
+      </form>
+
+    </div><!--/.nav-collapse -->
+  </div>
+</nav><link rel="stylesheet" media="screen and (min-width: 1023px)" href="https://air-quality.com/css/country.css">
+<link rel="stylesheet" media="screen and (max-width: 1023px)" href="https://air-quality.com/css/country_m.css">
+<script>
+  var rankingPlaceID = 'ce4c01d6';
+  var placeID = "ce4c01d6";
+  var historyKind = "aqi_us";
+  var standard = "aqi_us";
+  var urlKey = "country/china";
+  var historyTimeInterval = "hourly";
+  var historyData;
+</script>
+
+<script src="https://air-quality.com/js/api-web/detail.js"></script>
+<script src="https://air-quality.com/js/leaflet/leaflet.js"></script>
+
+<div class="container">
+  <div id="search-box">
+    <input type="text" id="search-ac" title="search place" placeholder="搜索地点" class="form-control ui-autocomplete-input" autocomplete="off">
+  </div>
+  <ol class="breadcrumb">
+    <li><a href='https://air-quality.com/continent/asia/2?lang=zh-Hans&standard=aqi_us'>亚洲</a></li><li class='active'>中国大陆</li></ol>
+  <div id="standards-country-dropdown" class="standards-dropdown input-group-btn">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="text">AQI (美国标准)</span><span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li value="aqi_cn">AQI (中国标准)</li><li value="aqi_nl">AQI (荷兰标准)</li><li value="aqi_us">AQI (美国标准)</li><li value="caqi_eu">CAQI (欧洲标准)</li><li value="daqi_uk">AQI (英国标准)</li><li value="naqi_in">AQI (印度标准)</li>    </ul>
+  </div>
+  <div class="detail-main">
+    <div id="map" class="detail-main-map detail-block">
+      <div id="kind-dropdown" class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="text"></span><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-box">
+      <div class="main-block-title">包含的地点</div><div class="main-block-content"><a href='https://air-quality.com/place/china/shanghai/4e4d63c9?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>上海</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 85</div>
+    </div></a><a href='https://air-quality.com/place/china/yunnan/7d06ad03?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>云南</div><div class="value-wrap">
+      <div class="value" style="background:#31cd31;" ?>AQI 37</div>
+    </div></a><a href='https://air-quality.com/place/china/inner-mongolia/fae60c46?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>内蒙古</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 54</div>
+    </div></a><a href='https://air-quality.com/place/china/beijing/8733f5dd?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>北京</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 85</div>
+    </div></a><a href='https://air-quality.com/place/china/jilin/e5977cde?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>吉林</div><div class="value-wrap">
+      <div class="value" style="background:#31cd31;" ?>AQI 26</div>
+    </div></a><a href='https://air-quality.com/place/china/sichuan/c1e90a42?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>四川</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 102</div>
+    </div></a><a href='https://air-quality.com/place/china/tianjin/87fe1b0a?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>天津</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 139</div>
+    </div></a><a href='https://air-quality.com/place/china/ningxia/886dab7e?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>宁夏</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 78</div>
+    </div></a><a href='https://air-quality.com/place/china/anhui/c8e1dd69?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>安徽</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 106</div>
+    </div></a><a href='https://air-quality.com/place/china/shandong/fb93dd4f?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>山东</div><div class="value-wrap">
+      <div class="value" style="background:#e02d1c;" ?>AQI 156</div>
+    </div></a><a href='https://air-quality.com/place/china/shanxi/7d11be77?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>山西</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 112</div>
+    </div></a><a href='https://air-quality.com/place/china/guangdong/6c7c446c?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>广东</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 66</div>
+    </div></a><a href='https://air-quality.com/place/china/guangxi/a2ca1ef7?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>广西</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 56</div>
+    </div></a><a href='https://air-quality.com/place/china/xinjiang/efce4518?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>新疆</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 73</div>
+    </div></a><a href='https://air-quality.com/place/china/jiangsu/9012a9ae?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>江苏</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 96</div>
+    </div></a><a href='https://air-quality.com/place/china/jiangxi/5d6fba4a?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>江西</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 77</div>
+    </div></a><a href='https://air-quality.com/place/china/hebei/414d595a?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>河北</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 149</div>
+    </div></a><a href='https://air-quality.com/place/china/henan/4559d10d?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>河南</div><div class="value-wrap">
+      <div class="value" style="background:#e02d1c;" ?>AQI 154</div>
+    </div></a><a href='https://air-quality.com/place/china/zhejiang/13d8ad81?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>浙江</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 59</div>
+    </div></a><a href='https://air-quality.com/place/china/hainan/ddaa2beb?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>海南</div><div class="value-wrap">
+      <div class="value" style="background:#31cd31;" ?>AQI 45</div>
+    </div></a><a href='https://air-quality.com/place/china/hubei/7991f3c2?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>湖北</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 93</div>
+    </div></a><a href='https://air-quality.com/place/china/hunan/e1c0dda3?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>湖南</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 109</div>
+    </div></a><a href='https://air-quality.com/place/china/gansu/6d22f6ac?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>甘肃</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 101</div>
+    </div></a><a href='https://air-quality.com/place/china/fujian/158ec4b5?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>福建</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 63</div>
+    </div></a><a href='https://air-quality.com/place/china/tibet/07580f0b?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>西藏</div><div class="value-wrap">
+      <div class="value" style="background:#31cd31;" ?>AQI 34</div>
+    </div></a><a href='https://air-quality.com/place/china/guizhou/a703a6e2?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>贵州</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 60</div>
+    </div></a><a href='https://air-quality.com/place/china/liaoning/5bbae410?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>辽宁</div><div class="value-wrap">
+      <div class="value" style="background:#31cd31;" ?>AQI 47</div>
+    </div></a><a href='https://air-quality.com/place/china/chongqing/43003be3?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>重庆</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 142</div>
+    </div></a><a href='https://air-quality.com/place/china/shaanxi/f4df2f55?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>陕西</div><div class="value-wrap">
+      <div class="value" style="background:#e88019;" ?>AQI 141</div>
+    </div></a><a href='https://air-quality.com/place/china/qinghai/0a03e667?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item even'><div class='title'>青海</div><div class="value-wrap">
+      <div class="value" style="background:#d9d726;" ?>AQI 63</div>
+    </div></a><a href='https://air-quality.com/place/china/heilongjiang/9ba90c0e?lang=zh-Hans&standard=aqi_us' target='_self' class='site-item odd'><div class='title'>黑龙江</div><div class="value-wrap">
+      <div class="value" style="background:#31cd31;" ?>AQI 37</div>
+    </div></a><div class="clr"></div></div></div>
+
+  </div>
+  <div class="detail-side-col">
+
+    <div class="detail-side-app detail-block">
+      <h4 class="side-block-title">下载 App</h4>
+      <a class="qrcode-btn" data-toggle="modal" data-target="#qrcode-modal">扫描二维码</a>
+      <div class="app-intro">
+        <div class="appicon"></div>
+        <div class="app-title">在意空气</div>
+        <div class="app-descr">在手机上实时查询全球超过 50 个国家的空气质量。</div>
+        <div class="clr"></div>
+      </div>
+      <div class="app-download-btns">
+        <div class="ios-download-btns">
+          <h3>iPhone, iPad</h3>
+          <div class="block">
+            <a href="https://itunes.apple.com/app/id477700080" target="_blank" class="btn btn_ios"></a>
+            <div class="clr"></div>
+          </div>
+        </div>
+        <div class="android-download-btns">
+          <h3>Android</h3>
+          <div class="block">
+            <a target="_blank" href="http://play.google.com/store/apps/details?id=com.freshideas.airindex" class="btn btn_googleplay"></a>
+            <a target="_blank" id="AndroidAPKDownload" href="https://air-matters.com/android_download.html" class="btn btn_local"></a>
+            <div class="clr"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="qrcode-modal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content" style="padding: 20px;">
+            <h4 class="modal-title">扫描二维码下载应用程序</h4>
+            <ul class="nav nav-tabs nav-justified" style="margin-top: 20px;">
+              <li id="qrcode-ios-tab" role="presentation" class="active"><a href="Javascript:activeQRTab('ios');">iOS</a></li>
+              <li id="qrcode-googleplay-tab" role="presentation"><a href="Javascript:activeQRTab('googleplay');">Google Play</a></li>
+              <li id="qrcode-apk-tab" role="presentation"><a href="Javascript:activeQRTab('apk');">Download APK</a></li>
+            </ul>
+            <div class="qrcodes">
+              <div id="ios-qrcode" class="qrcode"></div>
+              <div id="googleplay-qrcode" class="qrcode" style="display: none;"></div>
+              <div id="apk-qrcode" class="qrcode" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-side-ranking detail-block" style="display: none;" >
+      <h4 class="side-block-title">中国大陆 城市排名</h4>
+      <div id="ranking-dropdown" class="ranking-dropdown input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="text">最差</span><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li value="worst">最差</li>
+          <li value="best">最佳</li>
+        </ul>
+      </div>
+      <div class="side-block-content"></div>
+    </div>
+  </div>
+</div>
+<script>
+
+  function initMap(){
+    map = L.map('map').setView([35.86166, 104.195397], 4);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYWlyLW1hdHRlcnMiLCJhIjoiY2pja285ZXluMGhwYjJ3cGlrdmwzMm1pcSJ9.ZYcuV9fWFY8Kx0lcXMdH2g', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoiYWlyLW1hdHRlcnMiLCJhIjoiY2pja285ZXluMGhwYjJ3cGlrdmwzMm1pcSJ9.ZYcuV9fWFY8Kx0lcXMdH2g'
+    }).addTo(map);
+
+    map.on('zoomend', function(ev) {
+      getMapData();
+      //alert(ev.latlng); // ev is an event object (MouseEvent in this case)
+    });
+
+    map.on('moveend', function(ev) {
+      getMapData();
+      //alert(ev.latlng); // ev is an event object (MouseEvent in this case)
+    });
+  }
+
+  $(document).ready(function(){
+    initControls();
+    drawRanking("worst");
+
+    var width = document.body.clientWidth;
+    if(width > 1023)
+    {
+      initMap();
+      getMapData();
+    }
+
+    $('#ranking-dropdown li').click(function(e){
+      //e.preventDefault();
+      var selectedValue = $(this).attr("value");
+      var selectedText = $(this).text();
+      $(this).parents(".input-group-btn").find('.btn .text').text(selectedText);
+
+      drawRanking(selectedValue);
+    });
+  });
+
+</script><div id="Footer">Air Matters &copy; 2018</div>
+</body>
+</html>

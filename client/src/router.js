@@ -5,6 +5,7 @@ import About from './views/About';
 import Collection from './views/Collection'
 import Lands from './views/Collection/Lands'
 import Country from './views/Collection/Country'
+import City from './views/Collection/City'
 import CollectionMain from './views/Collection/CollectionMain'
 import Discovery from './views/Discovery'
 import Map from './views/Map'
@@ -35,6 +36,11 @@ export default new Router({
       name: 'collection',
       component: Collection,
       children: [
+        {
+          path: 'add/:land/:country',
+          name: 'City',
+          component: City
+        },
         {
           path: 'add/:land',
           name: 'Country',

@@ -1,7 +1,6 @@
 <template>
   <div class="collection-main">
-    <p>collection-main</p>
-    <dragList :data="collectionList" />
+    <dragList class="collection-list" :data="collectionList" />
   </div>
 </template>
 
@@ -15,7 +14,13 @@
     },
     data() {
       return {
-        collectionList: []
+        collectionList: [
+          'Beijing',
+          'Shanghai',
+          'Hangzhou',
+          'Chongqing',
+          'Wuhan',
+        ]
       }
     },
     methods: {
@@ -27,6 +32,15 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+  .collection-main {
+    background-color: #eee;
+    margin-top: -58px;
+    padding-top: 78px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    .collection-list {
+      background-color: #fff;
+    }
+  }
 </style>

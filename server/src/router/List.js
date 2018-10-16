@@ -8,6 +8,6 @@ const routers = router
     ctx.body = `Lists`
   })
   .get('/country', ListHandler.getCountryList)
-  .get('/city', ListHandler.getCityList)
+  .get('/:countryId/city', ListHandler.getCityList)
 
 module.exports = routers

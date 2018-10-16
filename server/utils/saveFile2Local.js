@@ -45,16 +45,16 @@ function sleep(time = 1000) {
   })
 }
 
-Object.keys(data).forEach(land => {
-  data[land].forEach(country => {
-    let path = country.bgImg
-    let fileName = path.slice(path.lastIndexOf('/') + 1)
-    saveFileFromInternet(path, fileName).then(() => {
-      console.log('success', fileName)
-    })
-    sleep()
-  })
-})
+// Object.keys(data).forEach(land => {
+//   data[land].forEach(country => {
+//     let path = country.bgImg
+//     let fileName = path.slice(path.lastIndexOf('/') + 1)
+//     saveFileFromInternet(path, fileName).then(() => {
+//       console.log('success', fileName)
+//     })
+//     sleep()
+//   })
+// })
 
 module.exports = {
   saveFileFromInternet

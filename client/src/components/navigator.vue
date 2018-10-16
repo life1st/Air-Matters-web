@@ -20,10 +20,10 @@
            v-if="showBack"
            @click="goBack">&#xe604;</i>
       </span>
-      <p class="title search" v-show="isOnSearch">
+      <p class="title search" v-show="isOnSearch && showSearch">
         <input type="text" :value="searchValue" @keydown="emitSearch">
       </p>
-      <p class="title" v-show="!isOnSearch">{{title}}</p>
+      <p class="title" v-show="!isOnSearch || !showSearch">{{title}}</p>
     </div>
     <hamburger v-show="isOpenMenu"
                :isMenuShow="isOpenMenu"
@@ -36,6 +36,9 @@
   import hamburger from './hamburger'
   export default {
     name: "navigator",
+    components: {
+      hamburger
+    },
     props: {
       showBack: {
         type: Boolean,
@@ -69,8 +72,12 @@
         }
       }
     },
-    components: {
-      hamburger
+    watch: {
+      isOnSearch(flag) {
+        if (!flag) {
+          this.isOpenMenu = false
+        }
+      }
     },
     created() {
       this.initTouchEvent()

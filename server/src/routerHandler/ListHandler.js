@@ -4,7 +4,7 @@ const { saveFileFromInternet} = require('../../utils/saveFile2Local')
 async function getCountryList(ctx) {
   const { lang: LANG = 'zh-Hans' } = ctx.query
   // const URL = `https://air-quality.com/places?lang=${LANG}`
-  const URL = 'http://localhost:8000/country.html'
+  const URL = 'http://localhost:8000/land.html'
 
   let res = await axios.get(URL).then(({data}) => {
     if (!data ) return { ok: false}
@@ -37,8 +37,43 @@ async function getCountryList(ctx) {
   ctx.body = res
 }
 
-function getCityList(ctx) {
-  ctx.body = `cityList`
+async function getCityList(ctx) {
+  // const URL = 'https://air-quality.com/country/china/ce4c01d6?lang=zh-Hans&standard=aqi_us'
+  const { countryId } = ctx.params
+  const URL = 'http://localhost:8000/country.html'
+  ctx.body = await axios.get(URL).then(({data}) => {
+    if (!data) return {ok: false}
+
+    let $ = cheerio.load(data)
+    let cities = $('.main-block-content a')
+    let country = []
+    cities.each(function () {
+      let city = $(this)
+      let value = city.find('.value')
+      country.push({
+        api: value.text().replace(/[A-z]|\s/g, ''),
+        color: value.css('background'),
+        href: city.attr('href'),
+        name: city.find('.title').text(),
+      })
+    })
+    return {
+      ok: true,
+      data: country
+    }
+  })
+}
+
+async function getPlaceList(ctx) {
+  const { placeId } = ctx.params
+  const URL = ''
+
+  ctx.body = await axios.get(URL).then(({data}) => {
+    if (!data) return {ok: false}
+
+    const $ = cheerio.load(data)
+
+  })
 }
 
 module.exports = {

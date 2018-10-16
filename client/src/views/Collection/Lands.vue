@@ -1,5 +1,8 @@
 <template>
-  <pureList :data="lands" @itemClick="handleLandClick" />
+  <pureList
+    class="lands-list"
+    :data="lands"
+    @itemClick="handleLandClick" />
 </template>
 
 <script>
@@ -23,6 +26,8 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+  .lands-list {
+    padding: 0 18px 0 20px;
+  }
 </style>
