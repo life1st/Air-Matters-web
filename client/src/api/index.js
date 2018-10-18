@@ -73,7 +73,7 @@ export function PUT_WITH_TOKEN(URL, token, params) {
 }
 
 export function getAllCitys() {
-  let url = `${BASE_URL}/all`
+  let url = `${BASE_HOST}/all`
   console.log(url)
   return axios.get(url).then(res => {
     console.log('res', res)
@@ -86,7 +86,7 @@ export function getAllCitys() {
 *
 * */
 export function getCity(config) {
-  let url = `${BASE_URL}/city`
+  let url = `${BASE_HOST}/city`
   let id = config.id
   let city = config.name
   let country = config.country
@@ -101,14 +101,14 @@ export function getCity(config) {
 }
 
 export function getRanking() {
-  let url = `${BASE_URL}/ranking`
+  let url = `${BASE_HOST}/ranking`
   return axios.get(url)
 }
 
 export function getLocation() {
-  // const BASE_URL = 'http://ip-api.com/json'
-  const BASE_URL = 'http://apis.map.qq.com/ws/location/v1/ip'
+  // const BASE_HOST = 'http://ip-api.com/json'
+  const BASE_HOST = 'http://apis.map.qq.com/ws/location/v1/ip'
   const API_KEY = 'CSIBZ-4LKWV-HNIPZ-UYVZG-BYG6O-PSBMP'
-  let url = `${BASE_URL}?key=${API_KEY}`
+  let url = `${BASE_HOST}?key=${API_KEY}`
   return axios.get(url)
 }

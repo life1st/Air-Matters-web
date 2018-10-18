@@ -7,6 +7,7 @@
 </template>
 <script>
   import { getLocation, getRanking } from "./api";
+  import axios from 'axios'
 
   export default {
     data() {

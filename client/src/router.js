@@ -47,7 +47,7 @@ export default new Router({
         //   component: Country
         // },
         {
-          path: 'add*',
+          path: 'add',
           name: 'lands',
           component: Lands
         },

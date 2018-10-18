@@ -31,7 +31,8 @@
         isShowAdd: true,
         isShowSearch: false,
         naviTitle: '',
-        transitionName: ''
+        transitionName: '',
+        routeQuery: {}
       }
     },
     computed: {
@@ -73,14 +74,27 @@
         const toDepth = to.path.split('/').length
         const fromDepth = from.path.split('/').length
         this.transitionName = toDepth < fromDepth ? 'slide-left' : 'slide-right'
+      },
+      '$route.query' (after, before) {
+        console.log(before, after)
       }
     },
     methods: {
       handleLandClick(val) {
-        console.log(val)
+        let len = Object.keys(this.routeQuery).length
+        console.log(len)
+        this.routeQuery = {
+          ...this.routeQuery,
+          [`place${len}`]: val
+        }
         this.$router.push({
-          path: `/collection/add/${val}`
+          name: 'lands',
+          query: this.routeQuery
         })
+        // console.log(val)
+        // this.$router.push({
+        //   path: `/collection/add/${val}`
+        // })
       },
       handleCountryClick(val) {
         let name = val.name
