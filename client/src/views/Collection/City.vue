@@ -12,7 +12,6 @@
 
 <script>
   import pureList from '../../components/pureList'
-  import { getCityList} from "../../api/collection"
 
   export default {
     name: "city",

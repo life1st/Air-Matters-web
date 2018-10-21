@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Home from './views/Home'
 import About from './views/About';
 import Collection from './views/Collection'
-import Lands from './views/Collection/Lands'
 import Country from './views/Collection/Country'
 import City from './views/Collection/City'
 import CollectionMain from './views/Collection/CollectionMain'
@@ -16,6 +15,7 @@ import detail from './components/city/detail'
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -47,9 +47,19 @@ export default new Router({
         //   component: Country
         // },
         {
-          path: 'add',
-          name: 'lands',
-          component: Lands
+          path: 'search',
+          name: 'Search',
+          component: () => import('./views/Collection/Search.vue')
+        },
+        {
+          path: 'add*',
+          name: 'Add',
+          component: () => import('./views/Collection/Add.vue')
+        },
+        {
+          path: 'add/:countryName',
+          name: 'Add',
+          component: () => import('./views/Collection/Add.vue')
         },
         {
           path: '',

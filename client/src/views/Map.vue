@@ -11,10 +11,9 @@
 
 <script>
   import navigator from '../components/navigator'
-  import axios from 'axios'
   import V_Echarts from 'vue-echarts-directive'
   import 'echarts/extension/bmap/bmap'
-  import { getLocation} from "../api"
+  import { getMapData} from "../api"
 
   export default {
     name: 'airMap',
@@ -34,7 +33,7 @@
       initChart(mapData) {
         const chart = this.$refs.chart.echartsInstance
         // if (mapData.length <= 0) return
-        console.log(mapData)
+        console.log(mapData, chart)
         // this.chartOptions = {
         //   tooltip: {},
         //   xAxis: {
@@ -53,7 +52,7 @@
         this.chartOptions = {
           bmap: {
             // 百度地图中心经纬度
-            center: [center.lon, center.lat],
+            center: [120.13066322374, 30.240018034923],
             // 百度地图缩放
             zoom: 12,
             // 是否开启拖拽缩放，可以只设置 'scale' 或者 'move'
@@ -71,16 +70,13 @@
         }
 
       },
-      getMapData() {
-        const URL = 'http://localhost:3000/map'
-        return axios.get(URL)
-      }
+
     },
     mounted() {
       // getLocation().then(({data}) => {
       //   console.log('location', data)
       // })
-      this.getMapData().then(({data}) => {
+      getMapData().then(({data}) => {
         this.showChart = data.success
         if (data.success) {
           this.initChart(data.data.map)

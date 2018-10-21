@@ -4,7 +4,7 @@
       <span class="icon right">
         <i class="iconfont search"
            v-if="showSearch"
-           @click="openSearch">&#xe62e;</i>
+           @click="openSearch;emitClick('onSearchClick', $event)">&#xe62e;</i>
         <i class="iconfont add"
            v-if="showAdd"
            @click="emitClick('onAddClick', $event)">&#xe6d5;</i>

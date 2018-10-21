@@ -3,382 +3,456 @@ export default {
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/china.png",
       "href": "https://air-quality.com/country/china/ce4c01d6?lang=zh-Hans&standard=aqi_us",
-      "name": "中国大陆"
+      "name": "中国大陆",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/israel.png",
       "href": "https://air-quality.com/country/israel/6122585f?lang=zh-Hans&standard=aqi_us",
-      "name": "以色列"
+      "name": "以色列",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/iran.png",
       "href": "https://air-quality.com/country/iran/495a1ffc?lang=zh-Hans&standard=aqi_us",
-      "name": "伊朗"
+      "name": "伊朗",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/india.png",
       "href": "https://air-quality.com/country/india/3ffd900b?lang=zh-Hans&standard=aqi_us",
-      "name": "印度"
+      "name": "印度",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/indonesia.png",
       "href": "https://air-quality.com/country/indonesia/9dd4240d?lang=zh-Hans&standard=aqi_us",
-      "name": "印度尼西亚"
+      "name": "印度尼西亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/taiwan.png",
       "href": "https://air-quality.com/place/taiwan/taiwan/5b21105b?lang=zh-Hans&standard=aqi_us",
-      "name": "台湾"
+      "name": "台湾",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/kazakhstan.png",
       "href": "https://air-quality.com/country/kazakhstan/6faccd54?lang=zh-Hans&standard=aqi_us",
-      "name": "哈萨克斯坦"
+      "name": "哈萨克斯坦",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/cyprus.png",
       "href": "https://air-quality.com/country/cyprus/a085ac96?lang=zh-Hans&standard=aqi_us",
-      "name": "塞浦路斯"
+      "name": "塞浦路斯",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/nepal.png",
       "href": "https://air-quality.com/country/nepal/bf6aa7c7?lang=zh-Hans&standard=aqi_us",
-      "name": "尼泊尔"
+      "name": "尼泊尔",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/bahrain.png",
       "href": "https://air-quality.com/country/bahrain/6b35f3ad?lang=zh-Hans&standard=aqi_us",
-      "name": "巴林"
+      "name": "巴林",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/sri-lanka.png",
       "href": "https://air-quality.com/country/sri-lanka/ffef5afe?lang=zh-Hans&standard=aqi_us",
-      "name": "斯里兰卡"
+      "name": "斯里兰卡",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/singapore.png",
       "href": "https://air-quality.com/country/singapore/ba7707e5?lang=zh-Hans&standard=aqi_us",
-      "name": "新加坡"
+      "name": "新加坡",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/japan.png",
       "href": "https://air-quality.com/country/japan/48e5965c?lang=zh-Hans&standard=aqi_us",
-      "name": "日本"
+      "name": "日本",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/thailand.png",
       "href": "https://air-quality.com/country/thailand/dd7614ca?lang=zh-Hans&standard=aqi_us",
-      "name": "泰国"
+      "name": "泰国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/kuwait.png",
       "href": "https://air-quality.com/country/kuwait/358e45cc?lang=zh-Hans&standard=aqi_us",
-      "name": "科威特"
+      "name": "科威特",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/philippines.png",
       "href": "https://air-quality.com/country/philippines/3bebe9b7?lang=zh-Hans&standard=aqi_us",
-      "name": "菲律宾"
+      "name": "菲律宾",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/mongolian.png",
       "href": "https://air-quality.com/country/mongolian/35dd5473?lang=zh-Hans&standard=aqi_us",
-      "name": "蒙古"
+      "name": "蒙古",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/vietnam.png",
       "href": "https://air-quality.com/country/vietnam/a741010c?lang=zh-Hans&standard=aqi_us",
-      "name": "越南"
+      "name": "越南",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/united-arab-emirates.png",
       "href": "https://air-quality.com/country/united-arab-emirates/08428181?lang=zh-Hans&standard=aqi_us",
-      "name": "阿拉伯联合酋长国"
+      "name": "阿拉伯联合酋长国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/republic-of-korea.png",
       "href": "https://air-quality.com/country/republic-of-korea/a5349032?lang=zh-Hans&standard=aqi_us",
-      "name": "韩国"
+      "name": "韩国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/hong-kong.png",
       "href": "https://air-quality.com/place/hong-kong/hong-kong/29a34245?lang=zh-Hans&standard=aqi_us",
-      "name": "香港"
+      "name": "香港",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/malaysia.png",
       "href": "https://air-quality.com/country/malaysia/44660bec?lang=zh-Hans&standard=aqi_us",
-      "name": "马来西亚"
+      "name": "马来西亚",
+      "placeId": "ce4c01d6"
     }
   ],
   "北美": [
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/canada.png",
       "href": "https://air-quality.com/country/canada/adbf4844?lang=zh-Hans&standard=aqi_us",
-      "name": "加拿大"
+      "name": "加拿大",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/guatemala.png",
       "href": "https://air-quality.com/country/guatemala/6529ec15?lang=zh-Hans&standard=aqi_us",
-      "name": "危地马拉"
+      "name": "危地马拉",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/mexico.png",
       "href": "https://air-quality.com/country/mexico/6736f650?lang=zh-Hans&standard=aqi_us",
-      "name": "墨西哥"
+      "name": "墨西哥",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/dominican-republic.png",
       "href": "https://air-quality.com/country/dominican-republic/29d85d75?lang=zh-Hans&standard=aqi_us",
-      "name": "多米尼加共和国"
+      "name": "多米尼加共和国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/puerto-rico.png",
       "href": "https://air-quality.com/country/puerto-rico/34b5ca75?lang=zh-Hans&standard=aqi_us",
-      "name": "波多黎各"
+      "name": "波多黎各",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/united-states.png",
       "href": "https://air-quality.com/country/united-states/dbc4ae61?lang=zh-Hans&standard=aqi_us",
-      "name": "美国"
+      "name": "美国",
+      "placeId": "ce4c01d6"
     }
   ],
   "南美洲": [
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/brazil.png",
       "href": "https://air-quality.com/country/brazil/e8f4d164?lang=zh-Hans&standard=aqi_us",
-      "name": "巴西"
+      "name": "巴西",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/chile.png",
       "href": "https://air-quality.com/country/chile/ad381ab8?lang=zh-Hans&standard=aqi_us",
-      "name": "智利"
+      "name": "智利",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/bolivia.png",
       "href": "https://air-quality.com/country/bolivia/b0777e4f?lang=zh-Hans&standard=aqi_us",
-      "name": "玻利维亚"
+      "name": "玻利维亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/peru.png",
       "href": "https://air-quality.com/country/peru/259f82af?lang=zh-Hans&standard=aqi_us",
-      "name": "秘鲁"
+      "name": "秘鲁",
+      "placeId": "ce4c01d6"
     }
   ],
   "大洋洲": [
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/new-zealand.png",
       "href": "https://air-quality.com/country/new-zealand/299fb9eb?lang=zh-Hans&standard=aqi_us",
-      "name": "新西兰"
+      "name": "新西兰",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/australia.png",
       "href": "https://air-quality.com/country/australia/59ae3071?lang=zh-Hans&standard=aqi_us",
-      "name": "澳大利亚"
+      "name": "澳大利亚",
+      "placeId": "ce4c01d6"
     }
   ],
   "欧洲": [
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/ukraine.png",
       "href": "https://air-quality.com/country/ukraine/f7118c39?lang=zh-Hans&standard=aqi_us",
-      "name": "乌克兰"
+      "name": "乌克兰",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/russia.png",
       "href": "https://air-quality.com/country/russia/bb9e989f?lang=zh-Hans&standard=aqi_us",
-      "name": "俄罗斯"
+      "name": "俄罗斯",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/bulgaria.png",
       "href": "https://air-quality.com/country/bulgaria/8a5c5b3e?lang=zh-Hans&standard=aqi_us",
-      "name": "保加利亚"
+      "name": "保加利亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/hungary.png",
       "href": "https://air-quality.com/country/hungary/f0c2573e?lang=zh-Hans&standard=aqi_us",
-      "name": "匈牙利"
+      "name": "匈牙利",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/luxembourg.png",
       "href": "https://air-quality.com/country/luxembourg/d3173c9a?lang=zh-Hans&standard=aqi_us",
-      "name": "卢森堡"
+      "name": "卢森堡",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/turkey.png",
       "href": "https://air-quality.com/country/turkey/2c0eeb76?lang=zh-Hans&standard=aqi_us",
-      "name": "土耳其"
+      "name": "土耳其",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/serbia.png",
       "href": "https://air-quality.com/country/serbia/e7648c99?lang=zh-Hans&standard=aqi_us",
-      "name": "塞尔维亚"
+      "name": "塞尔维亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/aland.png",
       "href": "https://air-quality.com/country/aland/9bb355de?lang=zh-Hans&standard=aqi_us",
-      "name": "奥兰"
+      "name": "奥兰",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/austria.png",
       "href": "https://air-quality.com/country/austria/5c67f12a?lang=zh-Hans&standard=aqi_us",
-      "name": "奥地利"
+      "name": "奥地利",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/greece.png",
       "href": "https://air-quality.com/country/greece/b1757cf9?lang=zh-Hans&standard=aqi_us",
-      "name": "希腊"
+      "name": "希腊",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/curaçao.png",
       "href": "https://air-quality.com/country/curaçao/11bb8daf?lang=zh-Hans&standard=aqi_us",
-      "name": "库拉索"
+      "name": "库拉索",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/germany.png",
       "href": "https://air-quality.com/country/germany/844e8d41?lang=zh-Hans&standard=aqi_us",
-      "name": "德国"
+      "name": "德国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/italy.png",
       "href": "https://air-quality.com/country/italy/d8dcd2db?lang=zh-Hans&standard=aqi_us",
-      "name": "意大利"
+      "name": "意大利",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/latvia.png",
       "href": "https://air-quality.com/country/latvia/bcef73cb?lang=zh-Hans&standard=aqi_us",
-      "name": "拉脱维亚"
+      "name": "拉脱维亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/norway.png",
       "href": "https://air-quality.com/country/norway/c034346a?lang=zh-Hans&standard=aqi_us",
-      "name": "挪威"
+      "name": "挪威",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/czech-republic.png",
       "href": "https://air-quality.com/country/czech-republic/1cd700df?lang=zh-Hans&standard=aqi_us",
-      "name": "捷克共和国"
+      "name": "捷克共和国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/slovakia.png",
       "href": "https://air-quality.com/country/slovakia/794105df?lang=zh-Hans&standard=aqi_us",
-      "name": "斯洛伐克"
+      "name": "斯洛伐克",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/slovenia.png",
       "href": "https://air-quality.com/country/slovenia/f84e172e?lang=zh-Hans&standard=aqi_us",
-      "name": "斯洛文尼亚"
+      "name": "斯洛文尼亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/svalbard-and-jan-mayen.png",
       "href": "https://air-quality.com/country/svalbard-and-jan-mayen/d6bec96e?lang=zh-Hans&standard=aqi_us",
-      "name": "斯瓦尔巴特"
+      "name": "斯瓦尔巴特",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/belgium.png",
       "href": "https://air-quality.com/country/belgium/1d90dee4?lang=zh-Hans&standard=aqi_us",
-      "name": "比利时"
+      "name": "比利时",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/france.png",
       "href": "https://air-quality.com/country/france/77f07ca6?lang=zh-Hans&standard=aqi_us",
-      "name": "法国"
+      "name": "法国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/poland.png",
       "href": "https://air-quality.com/country/poland/e9ee117e?lang=zh-Hans&standard=aqi_us",
-      "name": "波兰"
+      "name": "波兰",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/bosnia-and-herzegovina.png",
       "href": "https://air-quality.com/country/bosnia-and-herzegovina/a695c45b?lang=zh-Hans&standard=aqi_us",
-      "name": "波斯尼亚和黑塞哥维那"
+      "name": "波斯尼亚和黑塞哥维那",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/ireland.png",
       "href": "https://air-quality.com/country/ireland/c28eb8d5?lang=zh-Hans&standard=aqi_us",
-      "name": "爱尔兰"
+      "name": "爱尔兰",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/estonia.png",
       "href": "https://air-quality.com/country/estonia/fbd55211?lang=zh-Hans&standard=aqi_us",
-      "name": "爱沙尼亚"
+      "name": "爱沙尼亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/sweden.png",
       "href": "https://air-quality.com/country/sweden/33345fcc?lang=zh-Hans&standard=aqi_us",
-      "name": "瑞典"
+      "name": "瑞典",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/switzerland.png",
       "href": "https://air-quality.com/country/switzerland/0b945551?lang=zh-Hans&standard=aqi_us",
-      "name": "瑞士"
+      "name": "瑞士",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/gibraltar.png",
       "href": "https://air-quality.com/country/gibraltar/5fefce95?lang=zh-Hans&standard=aqi_us",
-      "name": "直布罗陀"
+      "name": "直布罗陀",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/lithuania.png",
       "href": "https://air-quality.com/country/lithuania/551128a9?lang=zh-Hans&standard=aqi_us",
-      "name": "立陶宛"
+      "name": "立陶宛",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/romania.png",
       "href": "https://air-quality.com/country/romania/ef833f75?lang=zh-Hans&standard=aqi_us",
-      "name": "罗马尼亚"
+      "name": "罗马尼亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/finland.png",
       "href": "https://air-quality.com/country/finland/0e5c5d6e?lang=zh-Hans&standard=aqi_us",
-      "name": "芬兰"
+      "name": "芬兰",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/united-kingdom.png",
       "href": "https://air-quality.com/country/united-kingdom/41f28f30?lang=zh-Hans&standard=aqi_us",
-      "name": "英国"
+      "name": "英国",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/netherlands.png",
       "href": "https://air-quality.com/country/netherlands/c2e3e5d7?lang=zh-Hans&standard=aqi_us",
-      "name": "荷兰"
+      "name": "荷兰",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/portugal.png",
       "href": "https://air-quality.com/country/portugal/6b469d63?lang=zh-Hans&standard=aqi_us",
-      "name": "葡萄牙"
+      "name": "葡萄牙",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/spain.png",
       "href": "https://air-quality.com/country/spain/8fccddbc?lang=zh-Hans&standard=aqi_us",
-      "name": "西班牙"
+      "name": "西班牙",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/albania.png",
       "href": "https://air-quality.com/country/albania/4ad74e90?lang=zh-Hans&standard=aqi_us",
-      "name": "阿尔巴尼亚"
+      "name": "阿尔巴尼亚",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/macedonia-fyrom.png",
       "href": "https://air-quality.com/country/macedonia-fyrom/a12310de?lang=zh-Hans&standard=aqi_us",
-      "name": "马其顿（FYROM）"
+      "name": "马其顿（FYROM）",
+      "placeId": "ce4c01d6"
     }
   ],
   "非洲": [
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/south-africa.png",
       "href": "https://air-quality.com/country/south-africa/f163a971?lang=zh-Hans&standard=aqi_us",
-      "name": "南非"
+      "name": "南非",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/somalia.png",
       "href": "https://air-quality.com/country/somalia/eeecf301?lang=zh-Hans&standard=aqi_us",
-      "name": "索马里"
+      "name": "索马里",
+      "placeId": "ce4c01d6"
     },
     {
       "bgImg": "https://air-quality.com/css/images/flags/country/kenya.png",
       "href": "https://air-quality.com/country/kenya/e005448e?lang=zh-Hans&standard=aqi_us",
-      "name": "肯尼亚"
+      "name": "肯尼亚",
+      "placeId": "ce4c01d6"
     }
   ]
 }

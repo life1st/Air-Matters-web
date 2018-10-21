@@ -112,3 +112,10 @@ export function getLocation() {
   let url = `${BASE_HOST}?key=${API_KEY}`
   return axios.get(url)
 }
+
+import mapData from './data/map'
+export function getMapData() {
+  return new Promise(resolve => resolve({
+    data: mapData
+  }))
+}

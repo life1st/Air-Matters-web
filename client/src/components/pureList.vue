@@ -1,10 +1,10 @@
 <template>
-  <ul class="list">
+  <ul class="list" v-if="!!data">
     <li class="item"
         :key="index"
-        @click="handleItemClick(item)"
+        @click="handleItemClick(item, index)"
         v-for="(item, index) in data" >
-      <slot :data="item">
+      <slot :slotProp="{data: item, key: index}">
         <span class="text">{{item}}</span>
       </slot>
     </li>
@@ -16,13 +16,13 @@
     name: "pureList",
     props: {
       data: {
-        type: Array,
-        default: () => []
+        type: [Array, Object],
       }
     },
     methods: {
-      handleItemClick(item) {
-        this.$emit('itemClick', item)
+      handleItemClick(item, index) {
+        // if data is Object, the 'index' will be 'key'
+        this.$emit('itemClick', {data: item, key: index})
       }
     }
   }

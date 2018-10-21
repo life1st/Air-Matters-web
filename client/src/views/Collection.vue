@@ -2,6 +2,7 @@
   <div class="collection">
     <navigator
       @onAddClick="handleAddClick"
+      @onSearchClick="handleSearchClick"
       :title="naviTitle"
       :show-add="isShowAdd"
       :showSearch="isShowSearch"
@@ -18,7 +19,6 @@
 
 <script>
   import navigator from '../components/navigator'
-  import { getCountryList} from "../api/collection"
 
   export default {
     name: 'collection',
@@ -88,7 +88,7 @@
           [`place${len}`]: val
         }
         this.$router.push({
-          name: 'lands',
+          name: 'Add',
           query: this.routeQuery
         })
         // console.log(val)
@@ -106,16 +106,15 @@
         this.$router.push({
           path: `/collection/add`
         })
+      },
+      handleSearchClick() {
+        this.$router.push({
+          path: '/collection/search'
+        })
       }
     },
     created() {
-      getCountryList().then(({data}) => {
-          if (data.ok) {
-            this.data = data.data
-          }
-        }).catch(err => {
-          // needn't handle this.
-      })
+
     }
   }
 </script>
