@@ -7,7 +7,6 @@
 </template>
 <script>
   import { getLocation, getRanking } from "./api";
-  import axios from 'axios'
 
   export default {
     data() {
@@ -57,8 +56,6 @@
 
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    /*font-family: 'STXihei';*/
-    /*font-family: 'Microsoft YaHei UI';*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

@@ -27,7 +27,7 @@ export function POST(URL, params) {
  * @returns {AxiosPromise<any>}
  * @constructor
  */
-export function GET(URL, data) {
+export function GET(URL, data = {}) {
   if (!URL.includes(BASE_HOST)) URL = BASE_HOST + URL
   return axios.get(URL, {
     ...data
@@ -107,15 +107,18 @@ export function getRanking() {
 
 export function getLocation() {
   // const BASE_HOST = 'http://ip-api.com/json'
-  const BASE_HOST = 'http://apis.map.qq.com/ws/location/v1/ip'
-  const API_KEY = 'CSIBZ-4LKWV-HNIPZ-UYVZG-BYG6O-PSBMP'
+  const BASE_HOST = 'https://apis.map.qq.com/ws/location/v1/ip'
+  const API_KEY = 'LPGBZ-HPC3U-FPTVE-BM3B4-B5SY2-KAF3K'
   let url = `${BASE_HOST}?key=${API_KEY}`
   return axios.get(url)
 }
 
-import mapData from './data/map'
+// import mapData from './data/map'
 export function getMapData() {
-  return new Promise(resolve => resolve({
-    data: mapData
-  }))
+  const url = '/map'
+  return new Promise(resolve => {
+    GET(url).then(res => {
+      resolve(res.data)
+    })
+  })
 }

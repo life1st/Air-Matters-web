@@ -2,73 +2,83 @@
   <div class="air-map">
     <navigator :show-share="true" title="空气质量地图"/>
     <p v-show="!showChart">chart err.</p>
-    <div ref="chart"
-         class="chart map"
-         v-show="showChart"
-         v-echarts="chartOptions"></div>
+    <div class="chart" ref="map"></div>
   </div>
 </template>
 
 <script>
   import navigator from '../components/navigator'
-  import V_Echarts from 'vue-echarts-directive'
-  import 'echarts/extension/bmap/bmap'
-  import { getMapData} from "../api"
+  import { getMapData } from "../api"
+  import { arcRect } from "../utils/canvas"
 
   export default {
     name: 'airMap',
     components: {
       navigator
     },
-    directives: {
-      'echarts': V_Echarts
-    },
     data() {
       return {
-        chartOptions: {},
-        showChart: false
+        showChart: true
       }
     },
     methods: {
       initChart(mapData) {
-        const chart = this.$refs.chart.echartsInstance
-        // if (mapData.length <= 0) return
-        console.log(mapData, chart)
-        // this.chartOptions = {
-        //   tooltip: {},
-        //   xAxis: {
-        //     data: ['A', 'B', 'C', 'D', 'E']
-        //   },
-        //   yAxis: {},
-        //   series: [
-        //     {
-        //       name: 'Num',
-        //       type: 'bar',
-        //       data: [5, 20, 36, 10, 10]
-        //     }
-        //   ]
-        // }
+        const MAP = new BMap.Map(this.$refs.map)
+        MAP.addControl(new BMap.NavigationControl());
+
         let center = mapData[300].place
-        this.chartOptions = {
-          bmap: {
-            // 百度地图中心经纬度
-            center: [120.13066322374, 30.240018034923],
-            // 百度地图缩放
-            zoom: 12,
-            // 是否开启拖拽缩放，可以只设置 'scale' 或者 'move'
-            roam: true,
-            // 百度地图的自定义样式，见 http://developer.baidu.com/map/jsdevelop-11.htm
-            mapStyle: {}
-          },
-          series: [{
-            type: 'scatter',
-            // 使用百度地图坐标系
-            coordinateSystem: 'bmap',
-            // 数据格式跟在 geo 坐标系上一样，每一项都是 [经度，纬度，数值大小，其它维度...]
-            data: [ [120, 30, 1] ]
-          }]
+        var myCity = new BMap.LocalCity()
+        myCity.get(res => {
+          MAP.centerAndZoom(res.center, 9)
+        })
+
+        var canvasLayer = new BMap.CanvasLayer({
+          update: update
+        })
+
+        function update() {
+          const ctx = this.canvas.getContext("2d")
+          if (!ctx) return
+
+          ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+
+          let points = []
+          mapData.forEach(city => {
+            if (!city.place) return
+            const {
+              place: { lat, lon},
+              // latest: {update_time: updateTime, readings}
+              latest
+            } = city
+            if (lat && lon) {
+              points.push({loc: new BMap.Point(lon, lat), latest})
+            }
+          })
+
+          const COLOR_MAP = [
+            '#31cd31',
+            '#d9d726',
+            '#e88019',
+            '#e02d1c',
+            '#af32ba',
+          ]
+          for (var i = 0, len = points.length; i < len; i++) {
+            const WIDTH = 15 // px
+            const RADIUS = 5
+            // 绘制时需要对经纬度进行转换
+            var pixel = MAP.pointToPixel(points[i].loc)
+
+            let index = points[i].latest.readings[0].value / 60
+            if (index > 4) index = 4
+            else index = Math.ceil(index)
+
+            arcRect(ctx, RADIUS, {x: pixel.x, y: pixel.y, w: WIDTH, h: WIDTH}, COLOR_MAP[index])
+            ctx.fillStyle = '#fff'
+            ctx.fillText(points[i].latest.readings[0].value, pixel.x, pixel.y + RADIUS + 6, WIDTH)
+          }
         }
 
+        MAP.addOverlay(canvasLayer)
       },
 
     },
@@ -76,7 +86,9 @@
       // getLocation().then(({data}) => {
       //   console.log('location', data)
       // })
-      getMapData().then(({data}) => {
+      // return
+
+      getMapData().then((data) => {
         this.showChart = data.success
         if (data.success) {
           this.initChart(data.data.map)
@@ -88,6 +100,10 @@
 
 <style scoped lang="less">
   @import "../assets/css/verb";
+
+  .map {
+    height: 40vh;
+  }
 
   .air-map {
     padding-top: @navigator-h;
