@@ -1,5 +1,9 @@
-let BASE_HOST = process.env.VUE_APP_API_BASE
+// let BASE_HOST = process.env.VUE_APP_API_BASE
+import axios from 'axios'
+import {TIME_OUT, API_BASE} from './consts'
+import ENV from '../env'
 
+const BASE_HOST = ENV.isDev ? '' : API_BASE
 /**
  *
  * @param URL {string}
@@ -45,7 +49,7 @@ export function GET_WITH_TOKEN(URL, token, params) {
   return GET(URL, {
     params,
     headers: {
-      supertoken: token
+      Authorization: token
     },
     timeout: TIME_OUT
   })
@@ -63,17 +67,8 @@ export function POST_WITH_TOKEN(URL, token, params) {
   return GET(URL, {
     params,
     headers: {
-      supertoken: token
+      Authorization: token
     },
     timeout: TIME_OUT
   })
 }
-
-export function standard() {
-  return require('./data/standard.json')
-}
-
-export function place() {
-  return require('./data/place.json')
-}
-

@@ -1,8 +1,10 @@
+
 module.exports = {
   configureWebpack: {
 
   },
   devServer: {
-    disableHostCheck: true
+    disableHostCheck: true,
+    proxy: 'https://api.air-matters.com'
   }
 }

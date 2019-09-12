@@ -92,7 +92,7 @@
         const startIndex = this.data.indexOf(this.dragItem)
         if (touchs[0]) {
           const dragItemY = Math.floor(touchs[0].pageY - this.baseTop + itemHeight / 2)
-          const nowIndex = Math.floor(dragItemY / itemHeight)
+          const nowIndex = Math.floor((dragItemY - itemHeight / 2) / itemHeight)
           const tempData = [...this.data]
           if ((startIndex !== -1)
           && (nowIndex !== -1)

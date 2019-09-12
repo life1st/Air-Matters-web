@@ -19,6 +19,10 @@
   import navigator from '../components/navigator'
   import cityCard from '../components/city/card'
   import { getAllCitys } from "../api";
+  import API from '../utils/api'
+  import CacheArray, {KEYS} from '../utils/cache'
+
+  const collection_places = new CacheArray(KEYS.COLLECTION_PLACES)
 
   export default {
     name: "home",
@@ -53,6 +57,12 @@
       // }).catch(err => {
       //   console.log(err)
       // })
+      // API.standard().then(res => {
+      //   console.log(res)
+      // })
+      API.places().then(res => {
+        console.log(res)
+      })
     }
   }
 </script>
