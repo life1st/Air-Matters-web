@@ -1,6 +1,10 @@
 <template>
   <div class="collection-main">
-    <dragList class="collection-list" :data="collectionList" />
+    <dragList 
+      class="collection-list" 
+      :data="collectionList" 
+      @dataUpdate='handleDataUpdate'
+    />
   </div>
 </template>
 
@@ -24,7 +28,9 @@
       }
     },
     methods: {
-
+      handleDataUpdate(data) {
+        this.collectionList = data
+      }
     },
     created() {
 
