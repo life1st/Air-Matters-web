@@ -4,7 +4,7 @@
       <span class="icon right">
         <i class="iconfont search"
            v-if="showSearch"
-           @click="openSearch;emitClick('onSearchClick', $event)">&#xe62e;</i>
+           @click="openSearch">&#xe62e;</i>
         <i class="iconfont add"
            v-if="showAdd"
            @click="emitClick('onAddClick', $event)">&#xe6d5;</i>
@@ -93,7 +93,11 @@
         this.$router.go(-1)
       },
       openSearch() {
-        this.isOnSearch = true
+        // this.isOnSearch = true
+        console.log('open search')
+        this.$router.replace({
+          path: '/search'
+        })
       },
       emitClick(type, event) {
         this.$emit(type, event)

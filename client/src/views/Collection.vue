@@ -2,15 +2,13 @@
   <div class="collection">
     <navigator
       @onAddClick="handleAddClick"
-      @onSearchClick="handleSearchClick"
       :title="naviTitle"
       :show-add="isShowAdd"
       :showSearch="isShowSearch"
       :showBack="true" />
     <transition :name="transitionName" >
       <router-view
-        :lands="lands"
-        :country="country"
+        @placeAdd="handlePlaceAdd"
         @countryItemClick="handleCountryClick"
         @landItemClick="handleLandClick" />
     </transition>
@@ -19,6 +17,9 @@
 
 <script>
   import navigator from '../components/navigator'
+  import CacheArray, {KEYS} from '../utils/cache.js'
+
+  const collectionPlaces = new CacheArray(KEYS.COLLECTION_PLACES)
 
   export default {
     name: 'collection',
@@ -36,41 +37,11 @@
       }
     },
     computed: {
-      lands() {
-        let lands = []
-        Object.keys(this.data).forEach(land => {
-          lands.push(land)
-        })
-        return lands
-      },
-      country() {
-        let params = this.$route.params
-        return params.land && this.data[params.land] || []
-      }
+      
     },
     watch: {
       '$route' (to, from) {
-        switch (to.name) {
-          case 'collection-main':
-            this.isShowAdd = true
-            this.isShowSearch = false
-            this.naviTitle = '收藏的地点'
-            break
-          case 'lands':
-            this.isShowAdd = false
-            this.isShowSearch = true
-            this.naviTitle = ''
-            break
-          case 'Country':
-            this.naviTitle = to.params.land
-            break
-          case 'City':
-            this.naviTitle = to.params.country
-            break
-          default:
-            this.isShowSearch = false
-            this.isShowAdd = false
-        }
+        this.handleRouteSwitch(to.name)
         const toDepth = to.path.split('/').length
         const fromDepth = from.path.split('/').length
         this.transitionName = toDepth < fromDepth ? 'slide-left' : 'slide-right'
@@ -80,6 +51,29 @@
       }
     },
     methods: {
+      handleRouteSwitch(name) {
+        switch (name) {
+          case 'collection-main':
+            this.isShowAdd = true
+            this.isShowSearch = false
+            this.naviTitle = '收藏的地点'
+            break
+          case 'Add':
+            this.isShowAdd = false
+            this.isShowSearch = true
+            break
+          default:
+            this.isShowSearch = false
+            this.isShowAdd = false
+        }
+      },
+      handlePlaceAdd(place) {
+        console.log(place)
+        collectionPlaces.push(place)
+        this.$router.replace({
+          path: '/collection'
+        })
+      },
       handleLandClick(val) {
         let len = Object.keys(this.routeQuery).length
         console.log(len)
@@ -107,14 +101,10 @@
           path: `/collection/add`
         })
       },
-      handleSearchClick() {
-        this.$router.push({
-          path: '/collection/search'
-        })
-      }
     },
-    created() {
-
+    mounted() {
+      const {path, name} = this.$route
+      this.handleRouteSwitch(name)
     }
   }
 </script>

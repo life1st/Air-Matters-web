@@ -4,12 +4,30 @@
       class="collection-list" 
       :data="collectionList" 
       @dataUpdate='handleDataUpdate'
-    />
+    >
+      <div slot-scope="{slotProp}">
+        <i class="iconfont garbage-bin" @click="handleRemoveItem(slotProp.data)">&#xe62d;</i>
+        <span>{{slotProp.data.name}}</span>
+      </div>
+      <template v-slot:dragItem='{dragItem}'>
+        <div v-if="dragItem" class="content">
+          <i class="iconfont garbage-bin">&#xe62d;</i>
+          <span class="data">{{dragItem.name}}</span>
+          <i class="iconfont drag">&#xe707;</i>
+        </div>
+      </template>
+    </dragList>
+    <div v-if="collectionList.length === 0">
+      no data yet.
+    </div>
   </div>
 </template>
 
 <script>
   import dragList from '../../components/dragList'
+  import CacheArray, {KEYS} from '../../utils/cache'
+
+  const collectionPlaces = new CacheArray(KEYS.COLLECTION_PLACES)
 
   export default {
     name: "CollectionMain",
@@ -18,22 +36,29 @@
     },
     data() {
       return {
-        collectionList: [
-          'Beijing',
-          'Shanghai',
-          'Hangzhou',
-          'Chongqing',
-          'Wuhan',
-        ]
+        collectionList: collectionPlaces.data
       }
     },
     methods: {
       handleDataUpdate(data) {
         this.collectionList = data
+        collectionPlaces.replace(data)
+      },
+      handleRemoveItem(item) {
+        console.log(item)
+        if (window.confirm(`确认移除${item.name}?`)) {
+          const {place_id} = item
+          const currentPlaces = [...this.collectionList].filter(item => item.place_id !== place_id)
+          this.handleDataUpdate(currentPlaces)
+        }
       }
     },
-    created() {
-
+    mounted() {
+      const cachedCollectionPlaces = collectionPlaces.get()
+      console.log(cachedCollectionPlaces)
+      if (cachedCollectionPlaces) {
+        this.handleDataUpdate(cachedCollectionPlaces)
+      }
     }
   }
 </script>

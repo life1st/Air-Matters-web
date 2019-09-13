@@ -6,12 +6,12 @@
       @touchend="handleTouchEnd"
     >
       <li class="drag-item"
-          :ref="item"
+          :ref="item.name"
           :class="dragItem === item ? 'on-drag': ''"
-          :key="item.id || index"
+          :key="index"
           v-for="(item, index) in data" >
           <div class="content">
-            <slot>
+            <slot :slotProp="{data: item}">
               <i class="iconfont garbage-bin">&#xe62d;</i>
               <div class="data"><span>{{item}}</span></div>
             </slot>
@@ -31,11 +31,13 @@
         top: this.dragItemY + "px"
       }'
     >
-        <div class="content">
-          <i class="iconfont garbage-bin">&#xe62d;</i>
-          <span class="data">{{dragItem}}</span>
-          <i class="iconfont drag">&#xe707;</i>
-        </div>
+        <slot name='dragItem' :dragItem='dragItem'>
+          <div class="content">
+            <i class="iconfont garbage-bin">&#xe62d;</i>
+            <span class="data">{{dragItem}}</span>
+            <i class="iconfont drag">&#xe707;</i>
+          </div>
+        </slot>
     </div>
   </div>
 </template>
@@ -75,7 +77,8 @@
         const SUCCESS_TIME = 200 //ms
         
         this.dragId = setTimeout(() => {
-          const itemTop = this.$refs[item][0].offsetTop
+          console.log(item, this.$refs)
+          const itemTop = this.$refs[item.name][0].offsetTop
 
           this.dragItem = item
           this.dragItemY = itemTop
@@ -111,7 +114,7 @@
   }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
   .drag-list {
     list-style: none;
     padding: 0;

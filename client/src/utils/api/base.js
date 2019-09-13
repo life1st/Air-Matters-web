@@ -32,6 +32,8 @@ export function POST(URL, params) {
  */
 export function GET(URL, data = {}) {
   if (!URL.includes(BASE_HOST)) URL = BASE_HOST + URL
+  // warning !!!
+  // return Promise.reject()
   return axios.get(URL, {
     ...data
   })

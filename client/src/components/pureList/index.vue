@@ -32,8 +32,6 @@
   .list {
     .item {
       text-align: left;
-      line-height: 58px;
-      height: 60px;
       overflow: hidden;
     }
   }

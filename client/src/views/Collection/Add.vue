@@ -1,34 +1,20 @@
 <template>
   <transition :name="transitionName">
     <div>
-      <div class="search" v-if="false">
-        <input class="search-input" type="text" v-model="searchText">
-        <button @click="handleSearch">Go</button>
-        <ul class="search-data-list" v-if="searchData" >
-          <li 
-            :key="place.place_id" 
-            v-for="place in searchData"
-          >
-            <span>{{place.place_id}}</span>
-            <span @click="handlePlaceAdd(place)">Add</span>
-          </li>
-        </ul>
-      </div>
       <pureList
         class="add-list"
         :data="currentLevel"
         @itemClick="toNextLevel" >
-        <div slot-scope="{slotProp}">
-          <div v-if="placeId">
-            <span>{{slotProp.data.name}}</span>
-          </div>
-          <div v-else>
-            <span style="margin-right: 6px;">{{slotProp.key}}</span>
-            <span class="title">{{slotProp.data.name}}</span>
-            <span class="icon-wrap">
-              <i class="iconfont right next-page">&#xe655;</i>
-            </span>
-          </div>
+        <div slot-scope="{slotProp}" class="list-content">
+          <span class="list-item-name">{{slotProp.data.name}}</span>
+          <span v-if="slotProp.data.brief" class="aqi budget" :style="{backgroundColor: slotProp.data.brief.color}">{{slotProp.data.brief.text}}</span>
+          <span 
+            class="icon-wrap"
+            :style="{marginLeft: 18}"
+            v-if="slotProp.data.type !== PLACE_TYPES.station"
+          >
+            <i class="iconfont right next-page">&#xe655;</i>
+          </span>
         </div>
       </pureList>
     </div>
@@ -39,6 +25,7 @@
   import pureList from '../../components/pureList'
   import { getPlaceData} from "../../api/collection"
   import API from '../../utils/api'
+  import {PLACE_TYPES} from '../../utils/api/consts'
   import CacheArray, {KEYS} from '../../utils/cache'
 
   const collection_places = new CacheArray(KEYS.COLLECTION_PLACES)
@@ -50,20 +37,18 @@
     },
     data() {
       return {
+        PLACE_TYPES,
         transitionName: '',
         params: {},
         listData: [],
         searchText: '',
         searchData: null,
-        places: {}, // place_id: next_level
+        places: {}, // place_id: current level
         currentLevel: []
       }
     },
     watch: {
       placeId(newId, oldId) {
-        // todo do something now don't know
-        console.log(newId, oldId)
-        // this.toNextLevel(placeId)
         if (newId && newId !== oldId) {
           this.fetchPlaces(newId)
         }
@@ -79,34 +64,36 @@
     },
     methods: {
       fetchPlaces(id) {
+        const cachedPlaces = this.places[String(id)]
+        if (cachedPlaces) {
+          this.currentLevel = cachedPlaces
+          return 
+        }
         API.places(id).then(res => {
           const {status, data} = res
           if (status === 200) {
-            this.currentLevel = data.places
+            this.currentLevel = data.places.sort((a, b) => a.name.charCodeAt() - b.name.charCodeAt())
+            this.places = {
+              ...this.places,
+              [id]: data.places
+            }
           }
         })
       },
       toNextLevel(payload) {
-        console.log(payload)
         const {place_id} = payload.data
+        console.log(payload)
+        // const currentClickedPlace = this.cachedPlaces[place_id]
+        const currentClickedPlace = this.currentLevel.find(item => item.place_id === place_id)
+        if (currentClickedPlace.type === PLACE_TYPES.station) {
+          this.$emit('placeAdd', currentClickedPlace)
+          return
+        }
         if (place_id) {
           this.$router.push({
             path: `/collection/add?place_id=${place_id}`
           })
         }
-        // let { placeId } = payload.data
-        // if (!placeId) {
-        //   this.$router.push({
-        //     path: `/collection/add/${payload.key}`
-        //   })
-        // } else {
-        //   getPlaceData(placeId)
-        //     .then(({data}) => {
-        //       if (data.ok) {
-        //         this.listData = data.data
-        //       }
-        //     })
-        // }
       },
       initListData() {
         getPlaceData().then(({data}) => {
@@ -121,7 +108,6 @@
       },
       handleSearch() {
         const {searchText} = this
-
         if (searchText.trim()) {
           API.search(searchText).then(res => {
             const {status, data} = res
@@ -137,7 +123,7 @@
       }
     },
     mounted() {
-      this.fetchPlaces()
+      this.fetchPlaces(this.placeId)
       // if (Object.keys(this.$route.query).length === 0) {
       //   // this.initListData()
       // } else {
@@ -167,10 +153,25 @@
     }
   }
 
-  .search-input {
-    border: 1px solid #eee;
-    &:focus {
-      outline: none;
+  .list-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  .list-item-name {
+    flex: 1;
+  }
+  .budget {
+    display: inline-block;
+    &.aqi {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 12px;
+      border-radius: 4px;
     }
   }
 </style>

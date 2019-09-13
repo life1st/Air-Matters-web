@@ -3,12 +3,13 @@
     <navigator :showBack="true" title="设置"/>
     <pureList
       class="setting-list"
+      v-for="(setting, index) in settingList"
       :data="setting"
       :key="index"
-      v-for="(setting, index) in settingList" >
-      <div class="setting-item" slot-scope="{data}">
-        <span class="text">{{data.name}}</span>
-      </div>
+    >
+      <template slot-scope="{slotProp}">
+        <span class="text">{{slotProp.data.name}}</span>
+      </template>
     </pureList>
   </div>
 </template>
@@ -54,20 +55,15 @@
   }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
   @import "../assets/css/verb";
   .setting {
+    @import "../components/pureList/default";
     padding-top: @navigator-h;
     background: #e8e8e8;
     .setting-list {
       margin: 12px 0;
       background: #fff;
-    }
-    .setting-item {
-      padding-left: 20px;
-      padding-right: 18px;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
     }
   }
 </style>

@@ -48,10 +48,16 @@ class CacheArray {
       this.data = get(key)
     }
   }
+  get() {
+    return store.get(this.key)
+  }
   push(val) {
-    const {key} = this
     this.data.push(val)
-    return store.set(key, this.data)
+    return store.set(this.key, this.data)
+  }
+  replace(val) {
+    this.data = val
+    return store.set(this.key, this.data)
   }
 }
 

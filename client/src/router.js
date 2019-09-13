@@ -3,8 +3,6 @@ import Router from 'vue-router';
 import Home from './views/Home'
 import About from './views/About';
 import Collection from './views/Collection'
-import Country from './views/Collection/Country'
-import City from './views/Collection/City'
 import CollectionMain from './views/Collection/CollectionMain'
 import Discovery from './views/Discovery'
 import Map from './views/Map'
@@ -32,32 +30,17 @@ export default new Router({
       component: About
     },
     {
+      path: '/search',
+      name: 'Search',
+      component: () => import('./views/Search.vue')
+    },
+    {
       path: '/collection',
       name: 'collection',
       component: Collection,
       children: [
-        // {
-        //   path: 'add/:land/:country',
-        //   name: 'City',
-        //   component: City
-        // },
-        // {
-        //   path: 'add/:land',
-        //   name: 'Country',
-        //   component: Country
-        // },
-        {
-          path: 'search',
-          name: 'Search',
-          component: () => import('./views/Collection/Search.vue')
-        },
         {
           path: 'add*',
-          name: 'Add',
-          component: () => import('./views/Collection/Add.vue')
-        },
-        {
-          path: 'add/:countryName',
           name: 'Add',
           component: () => import('./views/Collection/Add.vue')
         },
