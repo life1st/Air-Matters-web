@@ -22,11 +22,12 @@
 </template>
 
 <script>
-  import pureList from '../../components/pureList'
-  import { getPlaceData} from "../../api/collection"
+  import {getPlaceData} from "../../api/collection" // lagecy
   import API from '../../utils/api'
+  import pureList from '../../components/pureList'
   import {PLACE_TYPES} from '../../utils/api/consts'
   import CacheArray, {KEYS} from '../../utils/cache'
+  import {PLACES_MUTATION_KEYS} from '../../store/places'
 
   const collection_places = new CacheArray(KEYS.COLLECTION_PLACES)
 
@@ -40,7 +41,6 @@
         PLACE_TYPES,
         transitionName: '',
         params: {},
-        listData: [],
         searchText: '',
         searchData: null,
         places: {}, // place_id: current level
@@ -60,6 +60,10 @@
       },
       countryName() {
         return this.$route.params.countryName
+      },
+      storedPlaces() {
+        const {state} = this.$store
+        return state.places
       }
     },
     methods: {
@@ -72,6 +76,10 @@
         API.places(id).then(res => {
           const {status, data} = res
           if (status === 200) {
+            this.$store.commit(PLACES_MUTATION_KEYS.FETCH_PLACES, {
+              places: data.places,
+              place_id: id
+            })
             this.currentLevel = data.places.sort((a, b) => a.name.charCodeAt() - b.name.charCodeAt())
             this.places = {
               ...this.places,
@@ -96,6 +104,7 @@
         }
       },
       initListData() {
+        // lagecy.
         getPlaceData().then(({data}) => {
           if (data.ok) {
             if (this.countryName) {

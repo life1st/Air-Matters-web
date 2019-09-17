@@ -1,6 +1,7 @@
 const koa = require('koa')
 const app = new koa()
 const cors = require('@koa/cors')
+const bodyParser = require('koa-bodyparser')
 const router = require('./router')
 // CORS
 
@@ -19,6 +20,7 @@ app
       }
     }
   }))
+  .use(bodyParser())
   .use(router.routes())
   .listen(3000, () => {
     console.log('app listen: 3000')
