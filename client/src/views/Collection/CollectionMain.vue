@@ -26,6 +26,7 @@
 <script>
   import dragList from '../../components/dragList'
   import CacheArray, {KEYS} from '../../utils/cache'
+  import USRE_API from '../../utils/api/user'
 
   const collectionPlaces = new CacheArray(KEYS.COLLECTION_PLACES)
 
@@ -36,13 +37,14 @@
     },
     data() {
       return {
-        collectionList: collectionPlaces.data
+        collectionList: []
       }
     },
     methods: {
       handleDataUpdate(data) {
         this.collectionList = data
-        collectionPlaces.replace(data)
+        // collectionPlaces.replace(data)
+        USRE_API.sort(data.map(item => item.place_id), 'fake@pwd')
       },
       handleRemoveItem(item) {
         console.log(item)
@@ -54,11 +56,21 @@
       }
     },
     mounted() {
-      const cachedCollectionPlaces = collectionPlaces.get()
-      console.log(cachedCollectionPlaces)
-      if (cachedCollectionPlaces) {
-        this.handleDataUpdate(cachedCollectionPlaces)
-      }
+      // const cachedCollectionPlaces = collectionPlaces.get()
+      // console.log(cachedCollectionPlaces)
+      // if (cachedCollectionPlaces) {
+      //   this.handleDataUpdate(cachedCollectionPlaces)
+      // }
+      USRE_API.collection().then(res => {
+        const {status, data} = res
+        if (status === 200) {
+          this.collectionList = data.places
+        } else {
+          throw {err: 'network error'}
+        }
+      }).catch(e => {
+        console.error(e)
+      })
     }
   }
 </script>

@@ -1,3 +1,4 @@
+const OFFICIAL_APIKEY = 'a*b6T#w26cGpuByT@nFaQwq'
 const OFFICIAL_API_HOST = 'https://api.air-matters.com'
 const OFFICIAL_API_GET_PATHS = {
   STANDARD: '/standard',
@@ -10,7 +11,7 @@ const OFFICIAL_API_POST_PATHS = {
   NEARBY: '/nearby',
   WEATHER: '/weather'
 }
-const OFFICIAL_APIKEY = 'a*b6T#w26cGpuByT@nFaQwq'
+
 
 module.exports = {
   OFFICIAL_API_HOST,

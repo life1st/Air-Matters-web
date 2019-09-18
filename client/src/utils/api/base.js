@@ -1,9 +1,27 @@
 // let BASE_HOST = process.env.VUE_APP_API_BASE
 import axios from 'axios'
-import {TIME_OUT, API_BASE} from './consts'
+import {TIME_OUT, API_BASE, API_DEV_BASE} from './consts'
 import ENV from '../env'
 
-const BASE_HOST = ENV.isDev ? '' : API_BASE
+const BASE_HOST = API_DEV_BASE
+// const BASE_HOST = ENV.isDev ? '' : API_BASE
+
+/**
+ * 
+ * @param {*} URL 
+ * @param {*} params 
+ */
+export function PUT(URL, params) {
+  if (!URL.includes(BASE_HOST)) URL = BASE_HOST + URL
+  return axios({
+    method: 'put',
+    url: URL,
+    data: params,
+    headers: {},
+    timeout: TIME_OUT
+  })  
+}
+
 /**
  *
  * @param URL {string}

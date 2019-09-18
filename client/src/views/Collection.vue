@@ -17,7 +17,8 @@
 
 <script>
   import navigator from '../components/navigator'
-  import CacheArray, {KEYS} from '../utils/cache.js'
+  import CacheArray, {KEYS} from '../utils/cache'
+  import USRE_API from '../utils/api/user'
 
   const collectionPlaces = new CacheArray(KEYS.COLLECTION_PLACES)
 
@@ -69,7 +70,8 @@
       },
       handlePlaceAdd(place) {
         console.log(place)
-        collectionPlaces.push(place)
+        // collectionPlaces.push(place)
+        USRE_API.add([place], 'fake@pwd')
         this.$router.replace({
           path: '/collection'
         })

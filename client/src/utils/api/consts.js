@@ -1,8 +1,8 @@
 export const TIME_OUT = 10000
-// export const DEFAULT_TOKEN = '@NAIYwc6xXaVQRET'
-export const DEFAULT_TOKEN = 'a*b6T#w26cGpuByT@nFaQwq'
 export const API_BASE = 'https://api.air-matters.com'
+export const API_DEV_BASE = 'http://localhost:3000'
 
+/* Air Matters official */
 // get
 export const STANDARD_URL = '/standard'
 export const PLACES_URL = '/places'
@@ -47,3 +47,7 @@ export const LANG = {
   RO: 'ro', //罗马尼亚语
   RU: 'ru', //俄语
 }
+
+/* Nodejs side user */
+export const PLACES_COLLECTION = '/user/collction'
+export const ADD_PLACE = '/user/add_place'
