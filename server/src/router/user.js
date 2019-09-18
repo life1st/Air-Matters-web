@@ -1,17 +1,16 @@
 const router = require('koa-router')()
 const fs = require('fs')
-const path = require('path')
+const {USER_STORE_PATH} = require('../../utils/consts')
 
-const filePath = path.join(path.resolve(), '/src/db/user.json')
 const readCollection = () => new Promise((resolve, reject) => {
-  fs.readFile(filePath, 'utf8',(err, data) => {
+  fs.readFile(USER_STORE_PATH, 'utf8',(err, data) => {
     if (err) {reject(err)}
 
     resolve(JSON.parse(data))
   })
 })
 const writeCollection = (data) => new Promise((resolve, reject) => {
-  fs.writeFile(filePath, JSON.stringify(data), {encoding: 'utf8'}, (err) => {
+  fs.writeFile(USER_STORE_PATH, JSON.stringify(data), {encoding: 'utf8'}, (err) => {
     if (err) {reject(err)}
 
     resolve(data)
@@ -30,10 +29,23 @@ const routes = router
     
     ctx.body = file
   })
-  .post('/add_place', async (ctx) => {
-    const {request} = ctx
-    const {body} = request
-    const {places} = body
+  .put('/collction', async (ctx) => {
+    const {place_ids, password} = ctx.request.body
+
+    const {places} = await readCollection()
+    const data = place_ids.map(id => places.find(place => place.place_id === id))
+    const res = await writeCollection({
+      places: data
+    })
+
+    ctx.body = {ok: true, places: res.places}
+  })
+  .post('/collction/delete', async (ctx) => {
+
+  })
+  .post('/place', async (ctx) => {
+    const {places} = ctx.request.body
+
     let storedPlaces = await readCollection()
 
     const res = await writeCollection({
@@ -45,17 +57,8 @@ const routes = router
 
     ctx.body = {ok: true, places: res.places}
   })
-  .put('/collction', async (ctx) => {
-    const {request} = ctx
-    const {body} = request
-    const {place_ids, password} = body
-    const {places} = await readCollection()
-    const data = place_ids.map(id => places.find(place => place.place_id === id))
-    const res = await writeCollection({
-      places: data
-    })
-
-    ctx.body = {ok: true, places: res.places}
+  .delete('/place/:place_id', async (ctx) => {
+    
   })
 
   module.exports = routes

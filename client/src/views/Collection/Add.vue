@@ -49,7 +49,7 @@
     },
     watch: {
       placeId(newId, oldId) {
-        if (newId && newId !== oldId) {
+        if (newId !== oldId) {
           this.fetchPlaces(newId)
         }
       }
@@ -68,6 +68,7 @@
     },
     methods: {
       fetchPlaces(id) {
+        console.log(id)
         const cachedPlaces = this.places[String(id)]
         if (cachedPlaces) {
           this.currentLevel = cachedPlaces

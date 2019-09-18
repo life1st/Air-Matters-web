@@ -2,7 +2,9 @@
   <div class="collection-main">
     <dragList 
       class="collection-list" 
-      :data="collectionList" 
+      :data="collectionList"
+      @dragStart='handleDragStart'
+      @dragEnd='handleDragEnd'
       @dataUpdate='handleDataUpdate'
     >
       <div slot-scope="{slotProp}">
@@ -41,10 +43,19 @@
       }
     },
     methods: {
+      handleDragStart() {
+        this.originCollectionList = [...this.collectionList]
+      },
+      handleDragEnd(_unused) {
+        if (this.originCollectionList && this.collectionList.map(place => place.place_id).join('') 
+        !== this.originCollectionList.map(place => place.place_id).join('')) {
+          USRE_API.sort(this.collectionList.map(item => item.place_id), 'fake@pwd')
+        }
+        this.originCollectionList = null
+      },
       handleDataUpdate(data) {
         this.collectionList = data
         // collectionPlaces.replace(data)
-        USRE_API.sort(data.map(item => item.place_id), 'fake@pwd')
       },
       handleRemoveItem(item) {
         console.log(item)

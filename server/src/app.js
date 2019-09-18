@@ -1,9 +1,12 @@
 const koa = require('koa')
 const app = new koa()
+const static = require('koa-static')
 const cors = require('@koa/cors')
 const bodyParser = require('koa-bodyparser')
 const router = require('./router')
 // CORS
+
+const {STATIC_FOLDER} = require('../utils/consts')
 
 // router
 app
@@ -20,8 +23,9 @@ app
       }
     }
   }))
+  .use(static(STATIC_FOLDER))
   .use(bodyParser())
   .use(router.routes())
-  .listen(3000, () => {
-    console.log('app listen: 3000')
-  })
+  // .listen(80, () => {console.log('app listen: 3000')})
+
+module.exports = app.callback()

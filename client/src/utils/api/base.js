@@ -3,7 +3,7 @@ import axios from 'axios'
 import {TIME_OUT, API_BASE, API_DEV_BASE} from './consts'
 import ENV from '../env'
 
-const BASE_HOST = API_DEV_BASE
+const BASE_HOST = ENV.isDev ? API_DEV_BASE : ''
 // const BASE_HOST = ENV.isDev ? '' : API_BASE
 
 /**
