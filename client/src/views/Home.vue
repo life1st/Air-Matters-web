@@ -1,14 +1,14 @@
 <template>
   <div class="home-wrap">
     <navigator :show-share="true" />
-    <div class="home" v-if="hotCitys.length > 0">
+    <div class="home" v-if="citys.length > 0">
       <div class="title">
         <p>收藏的地点</p>
       </div>
-      <city-card
+      <cityCard
         :cityInfo="city"
         :key="city.name"
-        v-for="city in hotCitys" />
+        v-for="city in citys" />
     </div>
     <div class="home" v-else>
       <p style="margin: 0; padding: 12px 0; color: #ccc;">No data yet.</p>
@@ -19,7 +19,7 @@
   import navigator from '../components/navigator'
   import cityCard from '../components/city/card'
   import { getAllCitys } from "../api";
-  import API from '../utils/api'
+  import API_USER from '../utils/api/user'
   import CacheArray, {KEYS} from '../utils/cache'
 
   const collection_places = new CacheArray(KEYS.COLLECTION_PLACES)
@@ -29,7 +29,6 @@
     data() {
       return {
         citys: [],
-        hotCitys: []
       }
     },
     components: {
@@ -60,8 +59,11 @@
       // API.standard().then(res => {
       //   console.log(res)
       // })
-      API.places().then(res => {
+      API_USER.collection().then(res => {
         console.log(res)
+        if (res.status === 200) {
+          this.citys = res.data.places
+        }
       })
     }
   }

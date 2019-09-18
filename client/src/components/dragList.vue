@@ -77,7 +77,7 @@
         const SUCCESS_TIME = 200 //ms
         
         this.dragId = setTimeout(() => {
-          console.log(item, this.$refs)
+          this.$emit('dragStart')
           const itemTop = this.$refs[item.name][0].offsetTop
 
           this.dragItem = item
@@ -85,6 +85,7 @@
         }, SUCCESS_TIME)
       },
       handleTouchEnd(e) {
+        this.$emit('dragEnd', this.dragItem)
         clearTimeout(this.dragId)
         this.dragItemY = itemHeight * (this.data.indexOf(this.dragItem) + 1)
         this.dragItem = null

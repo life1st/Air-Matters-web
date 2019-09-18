@@ -1,20 +1,21 @@
 <template>
   <div class="city-card"
-       v-if="!!info" @click="toDetail">
+       v-if="!!cityInfo" @click="toDetail">
     <div class="main-info">
       <div class="left">
-        <p class="city-name">{{info.city}}</p>
+        <p class="city-name">{{cityInfo.name}}</p>
         <div class="aqi">
           <span class="title">空气质量指数</span>
-          <span class="value">{{AQIGrade(info.aqi.value)}}</span>
+          <!-- <span class="value">{{AQIGrade(info.aqi.value)}}</span> -->
+          <span class="value">{{cityInfo.brief.text}}</span>
         </div>
       </div>
-      <div class="right">
+      <div class="right" v-if="info">
         <span class="aqi-num">{{info.aqi.value}}</span>
         <i class="symbol icon" :style="`background: ${aqiColor}`"></i>
       </div>
     </div>
-    <div class="pollutant">
+    <div class="pollutant" v-if="info">
       <div class="item pm2d5"
            :style="`border-bottom: 2px solid ${borderC(info.pollutant['PM10'].value)}`">
         <span class="title">PM2.5</span>
@@ -105,7 +106,7 @@
       }
     },
     created() {
-      this.setCityData()
+      // this.setCityData()
     }
   }
 </script>

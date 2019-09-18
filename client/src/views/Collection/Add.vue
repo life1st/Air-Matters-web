@@ -49,7 +49,7 @@
     },
     watch: {
       placeId(newId, oldId) {
-        if (newId && newId !== oldId) {
+        if (newId !== oldId) {
           this.fetchPlaces(newId)
         }
       }
