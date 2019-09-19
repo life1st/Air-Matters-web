@@ -1,6 +1,15 @@
 const router = require('koa-router')()
 const fs = require('fs')
 const {USER_STORE_PATH} = require('../../utils/consts')
+const {userCollection} = require('../db/user')
+
+userCollection.get().then(snapshot => {
+  snapshot.forEach(doc => {
+    console.log(doc.id, '=>', doc.data());
+  })
+}).catch(e => {
+  console.log('doc error:', e)
+})
 
 const readCollection = () => new Promise((resolve, reject) => {
   fs.readFile(USER_STORE_PATH, 'utf8',(err, data) => {

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "air-matters-web",
+  "private_key_id": "72372945655b9e089e84d2d2f68887f0dbbab3b2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyAUGiX7+H3Dod\nNWd10EsD3hHYZF+7AJ+xe86ut6UbRVp7nm/tezHIU0SqyeKlHaIG3U++vSy6YVem\nrinN7KYYomYgA9E7/S9WBNNG4ASnURGCze3Ni+3xZASiCuRXoSlqjELKKnV7XgOe\nxJemioS0LRL73IbmRJO4wal8Dzv3tipuhhuAOuBBN/s2DmcnXBiawK6PsTOHvP/d\njMjrtTh9fUuEl5C5wwXRRWz0aBQDHhjom/8PTuEu+DWRHNI6hAQFttCcc40/DZyC\nVAp5A9Q9A2oGx6N+I8+Zi0c7hugVa8IFykF+Jop68VKTy2Y+RKGD1M5KX8kq2LEm\nCqHITt+HAgMBAAECggEAJ4oi56wIEegn2oQZ0rAtcZL6+Mu2/gVx840ySFoPqUKb\nCjmT2DcUxFBGwP8uQooWCxtO0uoXjOEBhMtMCutlq7QrJjJi4EXppVxWB/jL39Sg\npKMUjyNle8jBRLNRrGtmlT3Jujl7NieYe0RlAT/koVcfz+VY675Q5+nQuXdy1R95\nLcFBLM41zJG1nL2jxfwSrULQ7oIpq1r2rL3NEe5syyvPjGcpgELahk2V1rGz+25j\n1S/naK+ytF929XlJ1bdslsRbnOS+xSuhmejhaf9dDiOndhxf+0WwI1QzHRyUplzu\nW5W1nHt6xTAHNBNu5pcO9iM2JwFT2SW6v1jsP+11HQKBgQDl4vOWOJX6prHZ5B21\nTtgOb2H89RWWFysiJ+6I891TJwKXrUysyyc8tTFoT0qMvVf8Hwzp7hvX5n/H5mth\ntIrM7HYqBBDCP/N/38LHEPsEk7svicrfn9oWUYAhZHVJT+D6DM9StTydAut3b+hI\nu0fizre1wnY0zyr+ucr6iIJypQKBgQDGOZlYUlaNSx3jqFnCNzLPS9mu1BoPWV0M\nM6UGCaGPyrDaXe6GSDw65vxfPYBPvoJKIUnbFB0pchMYYyR14MV29zDDsdokdsFK\ntUmWke+Fu2Z3APyNbhTETGPXSg58Qt9B+KUYQ/deA0AVVBziRBN7ZVESwlKjM18O\nhnTtO6vNuwKBgGy5ziM6WBTYSj2XmkVqKN2K6HlPIQp/orLg1/yF+iOdy6gZGq6O\n1tvrhpajCctOshJYTS9GonyWU9EjtZ3cWdlZ7PkqOxLkVDIijmjAKzia9mkhboYd\ngHQVz9f7P02RLgKVlGi1txk7jEpM7zuW+ATZaCHa+zU21krrbIjZj3jRAoGBAIF4\n4bYUob/MDovCTE5Uq3VGv7o3g4X/Ao2TtfgJlmNLKtSWgdNnnx+B+9lhXEu5zXQJ\n5imYK6wEfIBzUT9FPvUDY/COXENw5bOcUaJtU5tv2e9kz5C5FAtbMeNO1cNIEncO\npxcAXbQkP1kvBWasvGTeumOcVUmPpkjgfcLuNLs9AoGATR6T1XTL2AnNsyubdJa4\nopVfLLw1wfil1XvuZheQ1OD9eAnmlOEYaSdj01XIDg7CJaI8qs7vaEbQVd8kMOwN\nSvqdedtizgM9f8JCVU25jMSap9YaAuPKf/RxG94hkHU31y3oCIqv2rWjMERcccuk\nQ5E1JwXLB1v9mhh7Xen0Kvo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "airmattersweb@air-matters-web.iam.gserviceaccount.com",
+  "client_id": "110472850700315523082",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/airmattersweb%40air-matters-web.iam.gserviceaccount.com"
+}
