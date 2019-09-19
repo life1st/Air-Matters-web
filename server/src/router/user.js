@@ -1,25 +1,26 @@
 const router = require('koa-router')()
 const fs = require('fs')
-const path = require('path')
+const {USER_STORE_PATH} = require('../../utils/consts')
 
-const filePath = path.join(path.resolve(), '/src/db/user.json')
 const readCollection = () => new Promise((resolve, reject) => {
-  fs.readFile(filePath, 'utf8',(err, data) => {
+  fs.readFile(USER_STORE_PATH, 'utf8',(err, data) => {
     if (err) {reject(err)}
 
     resolve(JSON.parse(data))
   })
 })
 const writeCollection = (data) => new Promise((resolve, reject) => {
-  fs.writeFile(filePath, JSON.stringify(data), {encoding: 'utf8'}, (err) => {
+  fs.writeFile(USER_STORE_PATH, JSON.stringify(data), {encoding: 'utf8'}, (err) => {
     if (err) {reject(err)}
 
     resolve(data)
   })
 })
 
+
 const routes = router
-  .get('/collction', async (ctx) => {
+  // 收藏地点list
+  .get('/collection', async (ctx) => {
     
     let file
     try {
@@ -30,7 +31,7 @@ const routes = router
     
     ctx.body = file
   })
-  .put('/collction', async (ctx) => {
+  .put('/collection', async (ctx) => {
     const {place_ids, password} = ctx.request.body
 
     const {places} = await readCollection()
@@ -41,10 +42,18 @@ const routes = router
 
     ctx.body = {ok: true, places: res.places}
   })
-  .post('/collction/delete', async (ctx) => {
+  .post('/collection/delete', async (ctx) => {
+    const {place_ids} = ctx.request.body
+    const {places} = await readCollection()
+    const data = places.filter(place => !place_ids.includes(place.place_id))
 
+    const res = await writeCollection({
+      places: data
+    })
+
+    ctx.body = {ok: true, places: res.places}
   })
-  .post('/place', async (ctx) => {
+  .post('/collection/add', async (ctx) => {
     const {places} = ctx.request.body
 
     let storedPlaces = await readCollection()
@@ -57,9 +66,6 @@ const routes = router
     })
 
     ctx.body = {ok: true, places: res.places}
-  })
-  .delete('/place/:place_id', async (ctx) => {
-    
   })
 
   module.exports = routes

@@ -12,18 +12,18 @@ class API_BUILDER {
   }
 
   standard(lang = 'cn') {
-    return GET(PATH_PREFIX + STANDARD_URL, {lang})
+    return GET_WITH_TOKEN(PATH_PREFIX + STANDARD_URL, null, {lang})
   }
 
   places(place_id, lang = 'cn') {
-    return GET(PATH_PREFIX + PLACES_URL, {place_id, lang})
+    return GET_WITH_TOKEN(PATH_PREFIX + PLACES_URL, null, {place_id, lang})
   }
 
   search(content, lang = 'cn') {
     if (!content) {
       return Promise.reject({msg: 'miss content params.'})
     }
-    return GET(PATH_PREFIX + PLACE_SEARCH_URL, {content, lang})
+    return GET_WITH_TOKEN(PATH_PREFIX + PLACE_SEARCH_URL, null, {content, lang})
   }
 }
 

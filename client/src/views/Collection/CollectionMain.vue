@@ -43,6 +43,18 @@
       }
     },
     methods: {
+      fetchData() {
+        USRE_API.collection().then(res => {
+          const {status, data} = res
+          if (status === 200) {
+            this.collectionList = data.places
+          } else {
+            throw {err: 'network error'}
+          }
+        }).catch(e => {
+          console.error(e)
+        })
+      },
       handleDragStart() {
         this.originCollectionList = [...this.collectionList]
       },
@@ -58,10 +70,10 @@
         // collectionPlaces.replace(data)
       },
       handleRemoveItem(item) {
-        console.log(item)
         if (window.confirm(`确认移除${item.name}?`)) {
           const {place_id} = item
           const currentPlaces = [...this.collectionList].filter(item => item.place_id !== place_id)
+          USRE_API.delete([place_id], 'fake@pwd')
           this.handleDataUpdate(currentPlaces)
         }
       }
@@ -72,16 +84,8 @@
       // if (cachedCollectionPlaces) {
       //   this.handleDataUpdate(cachedCollectionPlaces)
       // }
-      USRE_API.collection().then(res => {
-        const {status, data} = res
-        if (status === 200) {
-          this.collectionList = data.places
-        } else {
-          throw {err: 'network error'}
-        }
-      }).catch(e => {
-        console.error(e)
-      })
+      console.log('mount')
+      this.fetchData()
     }
   }
 </script>

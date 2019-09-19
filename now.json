@@ -1,0 +1,11 @@
+
+{
+  "name": "air-matters",
+  "version": 2,
+  "builds": [
+    { "src": "server/src/app.js", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "server/src/app.js" }
+  ]
+}

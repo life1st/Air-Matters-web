@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "air matters server for unofficial web client",
   "main": "./src/app.js",
+  "engines": {"node": "10.16.0"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/app.js"
+    "dev": "node ./src/app.js DEV",
+    "build": "node ./src/app.js"
   },
   "keywords": [
     "air-matters"
@@ -18,6 +20,7 @@
     "cheerio": "^1.0.0-rc.2",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.1",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
   }
 }
