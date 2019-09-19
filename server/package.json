@@ -6,7 +6,7 @@
   "engines": {"node": "10.16.0"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/app.js",
+    "dev": "node ./src/app.js DEV",
     "build": "node ./src/app.js"
   },
   "keywords": [

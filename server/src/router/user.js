@@ -17,8 +17,10 @@ const writeCollection = (data) => new Promise((resolve, reject) => {
   })
 })
 
+
 const routes = router
-  .get('/collction', async (ctx) => {
+  // 收藏地点list
+  .get('/collection', async (ctx) => {
     
     let file
     try {
@@ -29,7 +31,7 @@ const routes = router
     
     ctx.body = file
   })
-  .put('/collction', async (ctx) => {
+  .put('/collection', async (ctx) => {
     const {place_ids, password} = ctx.request.body
 
     const {places} = await readCollection()
@@ -40,10 +42,18 @@ const routes = router
 
     ctx.body = {ok: true, places: res.places}
   })
-  .post('/collction/delete', async (ctx) => {
+  .post('/collection/delete', async (ctx) => {
+    const {place_ids} = ctx.request.body
+    const {places} = await readCollection()
+    const data = places.filter(place => !place_ids.includes(place.place_id))
 
+    const res = await writeCollection({
+      places: data
+    })
+
+    ctx.body = {ok: true, places: res.places}
   })
-  .post('/place', async (ctx) => {
+  .post('/collection/add', async (ctx) => {
     const {places} = ctx.request.body
 
     let storedPlaces = await readCollection()
@@ -56,9 +66,6 @@ const routes = router
     })
 
     ctx.body = {ok: true, places: res.places}
-  })
-  .delete('/place/:place_id', async (ctx) => {
-    
   })
 
   module.exports = routes

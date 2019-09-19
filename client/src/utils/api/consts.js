@@ -49,5 +49,4 @@ export const LANG = {
 }
 
 /* Nodejs side user */
-export const PLACES_COLLECTION = '/user/collction'
-export const ADD_PLACE = '/user/add_place'
+export const PLACES_COLLECTION = '/user/collection'

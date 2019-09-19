@@ -13,7 +13,7 @@ const OFFICIAL_API_POST_PATHS = {
   WEATHER: '/weather'
 }
 
-const STATIC_FOLDER = path.resolve(__dirname, './../static')
+const STATIC_FOLDER = path.resolve(__dirname, './../../client/dist')
 const USER_STORE_PATH = path.resolve(__dirname, './../src/db/user.json')
 
 

@@ -68,7 +68,6 @@
     },
     methods: {
       fetchPlaces(id) {
-        console.log(id)
         const cachedPlaces = this.places[String(id)]
         if (cachedPlaces) {
           this.currentLevel = cachedPlaces

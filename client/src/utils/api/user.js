@@ -12,15 +12,21 @@ class API_USER {
   collection() {
     return GET(PLACES_COLLECTION)
   }
+  sort(place_ids, password) {
+    return PUT(PLACES_COLLECTION, {
+      place_ids,
+      password
+    })
+  }
   add(places, password) {
     // password like token.
-    return POST(ADD_PLACE, {
+    return POST(PLACES_COLLECTION + '/add', {
       places,
       password
     })
   }
-  sort(place_ids, password) {
-    return PUT(PLACES_COLLECTION, {
+  delete(place_ids, password) {
+    return POST(PLACES_COLLECTION + '/delete', {
       place_ids,
       password
     })
