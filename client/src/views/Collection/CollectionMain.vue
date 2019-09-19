@@ -84,7 +84,6 @@
       // if (cachedCollectionPlaces) {
       //   this.handleDataUpdate(cachedCollectionPlaces)
       // }
-      console.log('mount')
       this.fetchData()
     }
   }

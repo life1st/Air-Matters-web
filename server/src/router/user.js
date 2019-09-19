@@ -21,7 +21,6 @@ const writeCollection = (data) => new Promise((resolve, reject) => {
 const routes = router
   // 收藏地点list
   .get('/collection', async (ctx) => {
-    
     let file
     try {
       file = await readCollection()
